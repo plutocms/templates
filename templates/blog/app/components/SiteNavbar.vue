@@ -8,12 +8,14 @@ const { name: siteName } = usePlutoSite();
   >
     <NuxtLink
       to="/"
-      class="inline-flex min-w-0 items-center gap-2.5 font-semibold text-zinc-950 dark:text-white"
+      class="inline-flex min-w-0 items-center gap-2.5 font-semibold text-heading"
     >
       <PlutoLogo mark class="size-6 shrink-0" aria-hidden="true" />
       <span class="truncate">{{ siteName }}</span>
     </NuxtLink>
 
-    <ColorModeSwitch />
+    <ColorModeButton
+      class="inline-flex size-8 cursor-pointer items-center justify-center rounded-md text-muted hover:bg-surface hover:text-heading"
+    />
   </header>
 </template>

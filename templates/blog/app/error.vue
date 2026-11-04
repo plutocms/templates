@@ -15,10 +15,8 @@ useSeoMeta({ title, robots: "noindex" });
   <!-- PlutoRoot renders the layout, so the error page has the navbar and the footer. -->
   <PlutoRoot>
     <section class="mx-auto max-w-2xl px-6 pt-6 pb-16">
-      <p class="text-sm text-zinc-500">{{ error.status }}</p>
-      <h1
-        class="mt-2 text-3xl font-semibold tracking-tight text-zinc-950 dark:text-white"
-      >
+      <p class="text-sm text-muted">{{ error.status }}</p>
+      <h1 class="mt-2 text-3xl font-semibold tracking-tight text-heading">
         {{ title }}
       </h1>
       <p v-if="notFound" class="mt-3">

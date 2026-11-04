@@ -11,24 +11,24 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
   <div class="mx-auto max-w-2xl px-6 pb-16">
     <section class="pt-6 pb-10">
       <h1
-        class="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl dark:text-white"
+        class="text-3xl font-semibold tracking-tight text-heading sm:text-4xl"
       >
         {{ site.name }}
       </h1>
-      <p class="mt-3 text-lg text-zinc-500">{{ site.description }}</p>
+      <p class="mt-3 text-lg text-muted">{{ site.description }}</p>
 
       <label class="relative mt-8 block">
         <span class="sr-only">Search posts</span>
         <Icon
           name="lucide:search"
-          class="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-zinc-400"
+          class="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted"
         />
         <input
           v-model="search"
           type="search"
           placeholder="Search posts"
-          class="w-full rounded-lg border border-zinc-200 bg-transparent py-2 ps-9 pe-3 text-sm outline-none placeholder:text-zinc-400 focus:border-zinc-400 dark:border-zinc-800 dark:focus:border-zinc-600"
-        >
+          class="w-full rounded-lg border border-line bg-transparent py-2 ps-9 pe-3 text-sm outline-none placeholder:text-muted focus:border-muted"
+        />
       </label>
     </section>
 
@@ -56,9 +56,7 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
     </p>
 
     <template v-else>
-      <ul
-        class="divide-y divide-zinc-200 border-y border-zinc-200 dark:divide-zinc-800 dark:border-zinc-800"
-      >
+      <ul class="divide-y divide-line border-y border-line">
         <li v-for="post in posts" :key="post.id">
           <PostListItem :post="post" />
         </li>
@@ -72,19 +70,19 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
         <NuxtLink
           v-if="page > 1"
           :to="pageLink(page - 1)"
-          class="inline-flex items-center gap-1.5 hover:text-zinc-950 dark:hover:text-white"
+          class="inline-flex items-center gap-1.5 hover:text-heading"
         >
           <Icon name="lucide:arrow-left" class="size-4" />
           Newer posts
         </NuxtLink>
         <span v-else />
 
-        <span class="text-zinc-500">Page {{ page }} of {{ pages }}</span>
+        <span class="text-muted">Page {{ page }} of {{ pages }}</span>
 
         <NuxtLink
           v-if="page < pages"
           :to="pageLink(page + 1)"
-          class="inline-flex items-center gap-1.5 hover:text-zinc-950 dark:hover:text-white"
+          class="inline-flex items-center gap-1.5 hover:text-heading"
         >
           Older posts
           <Icon name="lucide:arrow-right" class="size-4" />
