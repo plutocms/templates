@@ -7,6 +7,12 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/tailwind.css"],
 
+  app: {
+    head: {
+      link: [{ rel: "icon", href: "/favicon.ico" }],
+    },
+  },
+
   runtimeConfig: {
     public: {
       websiteName: "My Shop",
