@@ -20,8 +20,7 @@ export default defineEventHandler((event) => {
     return { types: fixture.types };
   }
   const entry = fixture.types[type as keyof typeof fixture.types] as
-    | PlutoPublicIndexType
-    | undefined;
+    PlutoPublicIndexType | undefined;
   if (!entry) {
     throw createError({ statusCode: 404, statusMessage: "Not found." });
   }
