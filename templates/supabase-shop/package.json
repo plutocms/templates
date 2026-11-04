@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@plutocms/3d": "^0.4.0",
-    "@plutocms/core": "^0.54.0",
+    "@plutocms/core": "^0.55.0",
     "@plutocms/supabase-shop": "^0.19.0",
     "nuxt": "^4.6.3",
     "vue": "^3.5.41",
