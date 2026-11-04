@@ -51,9 +51,16 @@ npm create pluto@latest my-app -t none --backend git
 - `templates.json` is the registry: the name, the description, the backends and the changes the
   CLI makes for each backend. `create-pluto` and the store on the Pluto site read it.
   `bun run test` checks it against the folders.
-- `store/<id>/` holds what never ships: for example `store/<id>/demo/`, more sample content for
-  the live demo. A template with a `demo` URL in `templates.json` gets a static build on GitHub
-  Pages (`bun run demos`, then `.github/workflows/demos.yml` deploys `_site/`).
+- `store/<id>/` holds what never ships: the live demo. A template with a `demo` URL in
+  `templates.json` gets a static build on GitHub Pages (`bun run demos`, then
+  `.github/workflows/demos.yml` deploys `_site/`).
+  - A demo is fiction: a made-up site with royalty-free photos. `store/<id>/demo/` is copied over
+    the template, and its `content/` takes the place of the sample content of the template.
+  - `store/<id>/demo.env` gives the env of the build, for example the site name.
+  - `store/<id>/CREDITS.md` names the source and the license of each photo.
+  - A demo needs no backend. The static build writes the answers of the public API to fixed JSON
+    files, and the site searches and pages from them in the browser.
+  - `bun run test` checks the demo content: each post parses, and each cover has its file.
 - The root is a Bun workspace over `templates/*`. `bun install` installs every template, and
   `bun run build` builds them all.
 - A new template: a new folder (its id, for example `charon`), a `package.json` named
