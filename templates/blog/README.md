@@ -42,8 +42,8 @@ starting point:
 
 | File                                | What it does                                                                                                |
 | ----------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `app/assets/css/tailwind.css`       | The look: the font, the colors (light and dark), and the post body (`.pluto-prose`).                        |
-| `app/components/SiteNavbar.vue`     | The header: your logo, the site name and the light/dark switch (`ColorModeSwitch.vue`).                     |
+| `app/assets/css/main.css`           | The look, in plain CSS: the colors (light and dark) and the post body (`.pluto-prose`).                     |
+| `app/components/SiteNavbar.vue`     | The header: your logo, the site name and the light/dark switch (`ColorModeButton` of Pluto).                |
 | `app/components/SiteFooter.vue`     | The footer.                                                                                                 |
 | `app/pages/index.vue`               | The home page: the list of posts (`PostListItem.vue`), with search and pages.                               |
 | `app/components/PostArticle.vue`    | One post. The post page and the preview of the post editor both use it, so the preview looks like the site. |
@@ -54,7 +54,8 @@ The site name and description come from `websiteName` and `websiteDescription` i
 (or `NUXT_PUBLIC_WEBSITE_NAME` and `NUXT_PUBLIC_WEBSITE_DESCRIPTION`). The pages read the posts with
 the [site composables](https://pluto.vulmix.dev/docs/build/public-api#in-a-nuxt-site) of Pluto:
 `usePosts`, `usePost` and `useAdjacentPosts`. An editor also sees a draft on its page, with a
-**Draft** badge. The site
+**Draft** badge. Each color of `main.css` is also a Tailwind class (`text-heading`, `text-muted`,
+`border-line` and others), so a change of a color changes the whole site. The site
 starts in light mode (`colorMode.preference` in `nuxt.config.ts`). The texts are in English, in the
 files. For a site in more than one language, see
 [Internationalization](https://pluto.vulmix.dev/docs/build/i18n).

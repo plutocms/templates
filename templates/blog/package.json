@@ -6,8 +6,7 @@
     "build": "nuxt build",
     "dev": "nuxt dev",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "typecheck": "nuxt typecheck"
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@plutocms/core": "^0.54.0",
@@ -16,8 +15,6 @@
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
-    "@types/node": "^26.6.6",
-    "typescript": "^5.9.3",
-    "vue-tsc": "^3.3.14"
+    "typescript": "^5.9.3"
   }
 }
