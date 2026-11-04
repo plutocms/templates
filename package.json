@@ -7,6 +7,10 @@
   ],
   "scripts": {
     "build": "bun run --filter './templates/*' build",
-    "test": "node --test \"scripts/*.test.mjs\""
+    "test": "node --test \"scripts/*.test.mjs\"",
+    "demos": "node scripts/build-demos.mjs"
+  },
+  "devDependencies": {
+    "yaml": "^2.9.1"
   }
 }

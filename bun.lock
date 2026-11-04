@@ -4,6 +4,9 @@
   "workspaces": {
     "": {
       "name": "pluto-templates",
+      "devDependencies": {
+        "yaml": "^2.9.1",
+      },
     },
     "templates/blog": {
       "name": "pluto-template-blog",

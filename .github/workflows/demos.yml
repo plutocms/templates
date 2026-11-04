@@ -1,0 +1,66 @@
+name: Demos
+
+# Builds the live demos (scripts/build-demos.mjs: a static build of each
+# template with a `demo` in templates.json) and deploys them to GitHub Pages,
+# at https://plutocms.github.io/templates/<id>/. A demo is the site only.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'templates/**'
+      - 'store/**'
+      - 'templates.json'
+      - 'bun.lock'
+      - 'scripts/build-demos.mjs'
+  # The update workflow merges with github.token, and that push starts no
+  # workflow. So the demos also build after each update run.
+  workflow_run:
+    workflows: ['Update @plutocms']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          persist-credentials: false
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.4
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - run: bun install --frozen-lockfile
+
+      - run: bun run demos
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
