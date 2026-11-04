@@ -1,0 +1,5 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "@plutocms/css";
+@import "@plutocms/css/base";
+@import "@plutocms/css/site";

@@ -1,0 +1,6 @@
+# The "Deploy to Netlify" button of the README asks for these values. They come from your
+# Supabase project. Netlify finds Nuxt by itself, so this file sets nothing else.
+[template.environment]
+  SUPABASE_URL = "The project URL of your Supabase project"
+  SUPABASE_KEY = "The publishable key of your Supabase project"
+  DATABASE_URL = "The connection string of your Supabase database"

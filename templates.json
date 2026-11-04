@@ -1,0 +1,45 @@
+{
+  "$comment": "The registry of the official templates. create-pluto and the store on the Pluto site read it. Each id is a folder in templates/.",
+  "version": 1,
+  "templates": [
+    {
+      "id": "blog",
+      "name": "Blog (minimalist)",
+      "description": "Posts, search and a light and dark mode. No UI library: Tailwind CSS and a few components.",
+      "category": "blog",
+      "access": "free",
+      "starter": true,
+      "source": "gh:plutocms/templates/templates/blog",
+      "backends": {
+        "git": {},
+        "supabase": { "layer": "@plutocms/supabase-blog", "remove": ["content"] }
+      }
+    },
+    {
+      "id": "supabase-shop",
+      "name": "Shop (Supabase)",
+      "description": "A product catalog: photos, categories, stock, search and two languages, on Nuxt UI.",
+      "category": "shop",
+      "access": "free",
+      "starter": true,
+      "source": "gh:plutocms/templates/templates/supabase-shop",
+      "backends": {
+        "supabase": {}
+      }
+    },
+    {
+      "id": "dashboard",
+      "name": "Dashboard only",
+      "description": "No public site: the Pluto admin and the public API, for a site in any stack.",
+      "category": "dashboard",
+      "access": "free",
+      "starter": true,
+      "layers": true,
+      "source": "gh:plutocms/templates/templates/dashboard",
+      "backends": {
+        "git": {},
+        "supabase": { "layer": "@plutocms/supabase" }
+      }
+    }
+  ]
+}

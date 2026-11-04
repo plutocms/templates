@@ -1,0 +1,4 @@
+# Hoisted, like the install of a user (npm): a template must build with the
+# packages its layers bring, not only the ones it lists.
+[install]
+linker = "hoisted"

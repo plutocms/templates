@@ -1,0 +1,12 @@
+{
+  "name": "pluto-templates",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "templates/*"
+  ],
+  "scripts": {
+    "build": "bun run --filter './templates/*' build",
+    "test": "node --test \"scripts/*.test.mjs\""
+  }
+}

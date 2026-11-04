@@ -1,0 +1,37 @@
+{
+  "site": {
+    "nav": {
+      "language": "Language"
+    },
+    "home": {
+      "chip": "Shop",
+      "tagline": "Hand-picked products, managed in Pluto.",
+      "search": "Search products",
+      "categories": "Categories",
+      "all": "All",
+      "empty": "No products yet",
+      "emptyHint": "Open the admin and add the first product.",
+      "openAdmin": "Open the admin",
+      "noResults": "No products match",
+      "clearFilters": "Clear the filters",
+      "loadFailed": "Could not load the products"
+    },
+    "product": {
+      "back": "All products",
+      "madeToOrder": "Made to order",
+      "soldOut": "Sold out",
+      "inStock": "{count} in stock",
+      "showImage": "Show image {number}",
+      "showModel": "Show the 3D model"
+    },
+    "footer": {
+      "builtWith": "Built with Pluto"
+    },
+    "error": {
+      "notFound": "Page not found",
+      "notFoundHint": "The page you are looking for does not exist, or it moved.",
+      "generic": "Something went wrong",
+      "home": "Go to the home page"
+    }
+  }
+}

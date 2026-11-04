@@ -1,0 +1,37 @@
+{
+  "site": {
+    "nav": {
+      "language": "Idioma"
+    },
+    "home": {
+      "chip": "Loja",
+      "tagline": "Produtos escolhidos a dedo, gerenciados no Pluto.",
+      "search": "Buscar produtos",
+      "categories": "Categorias",
+      "all": "Todos",
+      "empty": "Nenhum produto ainda",
+      "emptyHint": "Abra o admin e cadastre o primeiro produto.",
+      "openAdmin": "Abrir o admin",
+      "noResults": "Nenhum produto encontrado",
+      "clearFilters": "Limpar os filtros",
+      "loadFailed": "Não foi possível carregar os produtos"
+    },
+    "product": {
+      "back": "Todos os produtos",
+      "madeToOrder": "Sob encomenda",
+      "soldOut": "Esgotado",
+      "inStock": "{count} em estoque",
+      "showImage": "Mostrar a imagem {number}",
+      "showModel": "Mostrar o modelo 3D"
+    },
+    "footer": {
+      "builtWith": "Feito com Pluto"
+    },
+    "error": {
+      "notFound": "Página não encontrada",
+      "notFoundHint": "A página que você procura não existe ou mudou de lugar.",
+      "generic": "Algo deu errado",
+      "home": "Ir para a página inicial"
+    }
+  }
+}
