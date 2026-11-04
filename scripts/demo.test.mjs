@@ -26,6 +26,24 @@ for (const template of registry.templates.filter((entry) => entry.demo)) {
       assert.match(env, /^NUXT_PUBLIC_WEBSITE_NAME=.+/m)
     })
 
+    const fixturePath = path.join(demo, 'demo-fixture.json')
+    if (fs.existsSync(fixturePath)) {
+      it('has a fixture in the shape of the public index, with each photo on disk', () => {
+        const fixture = JSON.parse(fs.readFileSync(fixturePath, 'utf8'))
+        for (const [type, entry] of Object.entries(fixture.types)) {
+          assert.equal(typeof entry.titleField, 'string', type)
+          assert.ok(entry.items.length > 0, `${type} has no items`)
+          for (const item of entry.items) {
+            assert.equal(typeof item[entry.titleField], 'string', `${type} ${item.id}`)
+            for (const media of item.media ?? []) {
+              assert.ok(fs.existsSync(path.join(demo, 'public', media.url)), media.url)
+              assert.ok(media.alt, `${media.url} has no alt text`)
+            }
+          }
+        }
+      })
+    }
+
     if (!fs.existsSync(posts)) {
       return
     }

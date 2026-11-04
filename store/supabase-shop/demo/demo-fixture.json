@@ -1,0 +1,469 @@
+{
+  "$comment": "The answers of the public API for the shop demo: the shape of /api/pluto/v1/index.json. server/middleware/demo-api.ts answers from it. Fiction: no real shop.",
+  "types": {
+    "product": {
+      "titleField": "name",
+      "items": [
+        {
+          "id": 1,
+          "name": "House Roast Beans, 250 g",
+          "slug": "house-roast-beans",
+          "description": "Our everyday roast: chocolate, nuts and a long finish. Roasted every Monday in small batches.",
+          "price": 5900,
+          "is_custom": false,
+          "stock_quantity": 40,
+          "category": {
+            "id": 1,
+            "label": "Coffee",
+            "slug": "coffee"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "house-roast-beans",
+              "url": "/demo/house-roast-beans.webp",
+              "name": "house-roast-beans.webp",
+              "mimeType": "image/webp",
+              "size": 73272,
+              "width": 900,
+              "height": 900,
+              "alt": "Dark roasted coffee beans",
+              "createdAt": "2026-10-30T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-30T10:00:00.000Z",
+          "updatedAt": "2026-10-30T10:00:00.000Z"
+        },
+        {
+          "id": 2,
+          "name": "Single Origin Beans, 250 g",
+          "slug": "single-origin-beans",
+          "description": "Light roast from one farm, with notes of red fruit and honey. Best as a pour-over.",
+          "price": 7400,
+          "is_custom": false,
+          "stock_quantity": 12,
+          "category": {
+            "id": 1,
+            "label": "Coffee",
+            "slug": "coffee"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "single-origin-beans",
+              "url": "/demo/single-origin-beans.webp",
+              "name": "single-origin-beans.webp",
+              "mimeType": "image/webp",
+              "size": 37450,
+              "width": 900,
+              "height": 900,
+              "alt": "Coffee beans on a light wooden table",
+              "createdAt": "2026-10-29T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-29T10:00:00.000Z",
+          "updatedAt": "2026-10-29T10:00:00.000Z"
+        },
+        {
+          "id": 3,
+          "name": "Pour-Over Brew Kit",
+          "slug": "pour-over-brew-kit",
+          "description": "A glass brewer, a gooseneck kettle and 100 paper filters. Everything for a slow cup.",
+          "price": 21900,
+          "is_custom": false,
+          "stock_quantity": 6,
+          "category": {
+            "id": 3,
+            "label": "Tableware",
+            "slug": "tableware"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "pour-over-brew-kit",
+              "url": "/demo/pour-over-brew-kit.webp",
+              "name": "pour-over-brew-kit.webp",
+              "mimeType": "image/webp",
+              "size": 40014,
+              "width": 900,
+              "height": 900,
+              "alt": "A glass coffee maker, a kettle and a filter",
+              "createdAt": "2026-10-28T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-28T10:00:00.000Z",
+          "updatedAt": "2026-10-28T10:00:00.000Z"
+        },
+        {
+          "id": 4,
+          "name": "Everyday Mug",
+          "slug": "everyday-mug",
+          "description": "A thick white stoneware mug that keeps the coffee hot. Holds 350 ml.",
+          "price": 6500,
+          "is_custom": false,
+          "stock_quantity": 30,
+          "category": {
+            "id": 3,
+            "label": "Tableware",
+            "slug": "tableware"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "everyday-mug",
+              "url": "/demo/everyday-mug.webp",
+              "name": "everyday-mug.webp",
+              "mimeType": "image/webp",
+              "size": 11888,
+              "width": 900,
+              "height": 900,
+              "alt": "A white mug of coffee on a red table",
+              "createdAt": "2026-10-27T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-27T10:00:00.000Z",
+          "updatedAt": "2026-10-27T10:00:00.000Z"
+        },
+        {
+          "id": 5,
+          "name": "Espresso Cup and Saucer",
+          "slug": "espresso-cup-and-saucer",
+          "description": "A small black porcelain cup with its saucer, for one short coffee.",
+          "price": 4900,
+          "is_custom": false,
+          "stock_quantity": 0,
+          "category": {
+            "id": 3,
+            "label": "Tableware",
+            "slug": "tableware"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "espresso-cup-and-saucer",
+              "url": "/demo/espresso-cup-and-saucer.webp",
+              "name": "espresso-cup-and-saucer.webp",
+              "mimeType": "image/webp",
+              "size": 34300,
+              "width": 900,
+              "height": 900,
+              "alt": "A black espresso cup with latte art",
+              "createdAt": "2026-10-26T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-26T10:00:00.000Z",
+          "updatedAt": "2026-10-26T10:00:00.000Z"
+        },
+        {
+          "id": 6,
+          "name": "Glass Teapot",
+          "slug": "glass-teapot",
+          "description": "A heat-proof glass teapot with a steel infuser. Holds 800 ml.",
+          "price": 15900,
+          "is_custom": false,
+          "stock_quantity": 9,
+          "category": {
+            "id": 4,
+            "label": "Tea",
+            "slug": "tea"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "glass-teapot",
+              "url": "/demo/glass-teapot.webp",
+              "name": "glass-teapot.webp",
+              "mimeType": "image/webp",
+              "size": 32784,
+              "width": 900,
+              "height": 900,
+              "alt": "A glass teapot with green tea",
+              "createdAt": "2026-10-25T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-25T10:00:00.000Z",
+          "updatedAt": "2026-10-25T10:00:00.000Z"
+        },
+        {
+          "id": 7,
+          "name": "Porcelain Tea Cup",
+          "slug": "porcelain-tea-cup",
+          "description": "Thrown by hand and painted to order. Each cup is a little different. Ships in four weeks.",
+          "price": 8900,
+          "is_custom": true,
+          "stock_quantity": 0,
+          "category": {
+            "id": 3,
+            "label": "Tableware",
+            "slug": "tableware"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "porcelain-tea-cup",
+              "url": "/demo/porcelain-tea-cup.webp",
+              "name": "porcelain-tea-cup.webp",
+              "mimeType": "image/webp",
+              "size": 27550,
+              "width": 900,
+              "height": 900,
+              "alt": "A porcelain tea cup with steam",
+              "createdAt": "2026-10-24T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-24T10:00:00.000Z",
+          "updatedAt": "2026-10-24T10:00:00.000Z"
+        },
+        {
+          "id": 8,
+          "name": "Lemon and Ginger Tea",
+          "slug": "lemon-and-ginger-tea",
+          "description": "Dried lemon peel and ginger root. Bright, warm, and good for a cold evening. 20 bags.",
+          "price": 3900,
+          "is_custom": false,
+          "stock_quantity": 25,
+          "category": {
+            "id": 4,
+            "label": "Tea",
+            "slug": "tea"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "lemon-and-ginger-tea",
+              "url": "/demo/lemon-and-ginger-tea.webp",
+              "name": "lemon-and-ginger-tea.webp",
+              "mimeType": "image/webp",
+              "size": 16348,
+              "width": 900,
+              "height": 900,
+              "alt": "A cup of lemon and ginger tea",
+              "createdAt": "2026-10-23T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-23T10:00:00.000Z",
+          "updatedAt": "2026-10-23T10:00:00.000Z"
+        },
+        {
+          "id": 9,
+          "name": "Wildflower Honey, 350 g",
+          "slug": "wildflower-honey",
+          "description": "Raw honey from the hills behind the harbour. It sets in winter, and that is fine.",
+          "price": 4500,
+          "is_custom": false,
+          "stock_quantity": 18,
+          "category": {
+            "id": 2,
+            "label": "Pantry",
+            "slug": "pantry"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "wildflower-honey",
+              "url": "/demo/wildflower-honey.webp",
+              "name": "wildflower-honey.webp",
+              "mimeType": "image/webp",
+              "size": 38692,
+              "width": 900,
+              "height": 900,
+              "alt": "A honey dipper in a jar of dark honey",
+              "createdAt": "2026-10-22T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-22T10:00:00.000Z",
+          "updatedAt": "2026-10-22T10:00:00.000Z"
+        },
+        {
+          "id": 10,
+          "name": "Oat and Raisin Cookies",
+          "slug": "oat-and-raisin-cookies",
+          "description": "A box of twelve, baked with butter and brown sugar. They keep for two weeks.",
+          "price": 2900,
+          "is_custom": false,
+          "stock_quantity": 20,
+          "category": {
+            "id": 2,
+            "label": "Pantry",
+            "slug": "pantry"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "oat-and-raisin-cookies",
+              "url": "/demo/oat-and-raisin-cookies.webp",
+              "name": "oat-and-raisin-cookies.webp",
+              "mimeType": "image/webp",
+              "size": 48498,
+              "width": 900,
+              "height": 900,
+              "alt": "Oat cookies in a bowl, with lemon slices and flowers",
+              "createdAt": "2026-10-21T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-21T10:00:00.000Z",
+          "updatedAt": "2026-10-21T10:00:00.000Z"
+        },
+        {
+          "id": 11,
+          "name": "Raspberry Jam, 300 g",
+          "slug": "raspberry-jam",
+          "description": "Made in small pots with whole fruit, sugar and lemon. Nothing else.",
+          "price": 3200,
+          "is_custom": false,
+          "stock_quantity": 15,
+          "category": {
+            "id": 2,
+            "label": "Pantry",
+            "slug": "pantry"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "raspberry-jam",
+              "url": "/demo/raspberry-jam.webp",
+              "name": "raspberry-jam.webp",
+              "mimeType": "image/webp",
+              "size": 21670,
+              "width": 900,
+              "height": 900,
+              "alt": "Fresh raspberries on a white table",
+              "createdAt": "2026-10-20T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-20T10:00:00.000Z",
+          "updatedAt": "2026-10-20T10:00:00.000Z"
+        },
+        {
+          "id": 12,
+          "name": "Strawberry Jam, 300 g",
+          "slug": "strawberry-jam",
+          "description": "The jam of early summer, cooked slowly. Back in June.",
+          "price": 3200,
+          "is_custom": false,
+          "stock_quantity": 0,
+          "category": {
+            "id": 2,
+            "label": "Pantry",
+            "slug": "pantry"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "strawberry-jam",
+              "url": "/demo/strawberry-jam.webp",
+              "name": "strawberry-jam.webp",
+              "mimeType": "image/webp",
+              "size": 124702,
+              "width": 900,
+              "height": 900,
+              "alt": "A pile of fresh red strawberries",
+              "createdAt": "2026-10-19T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-19T10:00:00.000Z",
+          "updatedAt": "2026-10-19T10:00:00.000Z"
+        },
+        {
+          "id": 13,
+          "name": "Pepper and Spice Set",
+          "slug": "pepper-and-spice-set",
+          "description": "Black, white and pink pepper, and a smoked salt, in four small jars.",
+          "price": 5400,
+          "is_custom": false,
+          "stock_quantity": 10,
+          "category": {
+            "id": 2,
+            "label": "Pantry",
+            "slug": "pantry"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "pepper-and-spice-set",
+              "url": "/demo/pepper-and-spice-set.webp",
+              "name": "pepper-and-spice-set.webp",
+              "mimeType": "image/webp",
+              "size": 51112,
+              "width": 900,
+              "height": 900,
+              "alt": "Peppercorns and vegetables on a cutting board",
+              "createdAt": "2026-10-18T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-18T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z"
+        },
+        {
+          "id": 14,
+          "name": "Breakfast Granola",
+          "slug": "breakfast-granola",
+          "description": "Oats, almonds and seeds, toasted with honey. A 500 g bag.",
+          "price": 3600,
+          "is_custom": false,
+          "stock_quantity": 22,
+          "category": {
+            "id": 2,
+            "label": "Pantry",
+            "slug": "pantry"
+          },
+          "availability": null,
+          "media": [
+            {
+              "id": "breakfast-granola",
+              "url": "/demo/breakfast-granola.webp",
+              "name": "breakfast-granola.webp",
+              "mimeType": "image/webp",
+              "size": 25614,
+              "width": 900,
+              "height": 900,
+              "alt": "Granola with strawberries in a white bowl",
+              "createdAt": "2026-10-17T10:00:00.000Z",
+              "preview": null
+            }
+          ],
+          "createdAt": "2026-10-17T10:00:00.000Z",
+          "updatedAt": "2026-10-17T10:00:00.000Z"
+        }
+      ]
+    },
+    "product-category": {
+      "titleField": "label",
+      "items": [
+        {
+          "id": 1,
+          "label": "Coffee",
+          "slug": "coffee"
+        },
+        {
+          "id": 2,
+          "label": "Pantry",
+          "slug": "pantry"
+        },
+        {
+          "id": 3,
+          "label": "Tableware",
+          "slug": "tableware"
+        },
+        {
+          "id": 4,
+          "label": "Tea",
+          "slug": "tea"
+        }
+      ]
+    }
+  }
+}

@@ -17,7 +17,7 @@ or Supabase. [`templates/blog`](templates/blog) · [Live demo](https://plutocms.
 ### Shop (Supabase)
 
 A product catalog: photos, categories, stock, search and two languages, on Nuxt UI. Supabase.
-[`templates/supabase-shop`](templates/supabase-shop)
+[`templates/supabase-shop`](templates/supabase-shop) · [Live demo](https://plutocms.github.io/templates/supabase-shop/)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fplutocms%2Ftemplates%2Ftree%2Fmain%2Ftemplates%2Fsupabase-shop&project-name=my-shop&repository-name=my-shop&env=SUPABASE_URL,SUPABASE_KEY,DATABASE_URL&envDescription=The%20values%20of%20your%20Supabase%20project&envLink=https%3A%2F%2Fpluto.vulmix.dev%2Fdocs%2Fsupabase)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/plutocms/templates&create_from_path=templates/supabase-shop)
@@ -60,7 +60,13 @@ npm create pluto@latest my-app -t none --backend git
   - `store/<id>/CREDITS.md` names the source and the license of each photo.
   - A demo needs no backend. The static build writes the answers of the public API to fixed JSON
     files, and the site searches and pages from them in the browser.
-  - `bun run test` checks the demo content: each post parses, and each cover has its file.
+  - A template on the Git CMS gets its demo content as Markdown (`store/<id>/demo/content/`). A
+    template on another backend gets it as a fixture: `store/<id>/demo/demo-fixture.json`, in the
+    shape of the public index (`{ types: { <type>: { titleField, items } } }`), and
+    `store/<id>/demo/server/middleware/demo-api.ts` answers the public API from it while the pages
+    prerender. The shop demo works this way, with a fake Supabase URL in `demo.env`.
+  - `bun run test` checks the demo content: each post parses, each cover has its file, and each
+    photo of a fixture is on disk.
 - The root is a Bun workspace over `templates/*`. `bun install` installs every template, and
   `bun run build` builds them all.
 - A new template: a new folder (its id, for example `charon`), a `package.json` named
