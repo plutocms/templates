@@ -5,7 +5,7 @@ export default defineNuxtConfig({
 
   devtools: { enabled: true },
 
-  css: ["~/assets/css/tailwind.css"],
+  css: ["~/assets/css/main.css"],
 
   app: {
     head: {
