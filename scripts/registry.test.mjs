@@ -47,6 +47,15 @@ describe('templates.json', () => {
         }
       })
 
+      it('has its demo on the GitHub Pages of this repo', () => {
+        if (template.demo !== undefined) {
+          assert.equal(
+            template.demo,
+            `https://plutocms.github.io/templates/${template.id}/`
+          )
+        }
+      })
+
       it('lists known backends, with known changes', () => {
         const backends = Object.entries(template.backends ?? {})
         assert.ok(backends.length > 0, 'no backend')

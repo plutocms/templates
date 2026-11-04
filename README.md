@@ -9,7 +9,7 @@ repository are for the development of the templates.
 ### Blog (minimalist)
 
 Posts, search and a light and dark mode. Tailwind CSS and a few components, no UI library. Git CMS
-or Supabase. [`templates/blog`](templates/blog)
+or Supabase. [`templates/blog`](templates/blog) · [Live demo](https://plutocms.github.io/templates/blog/)
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fplutocms%2Ftemplates%2Ftree%2Fmain%2Ftemplates%2Fblog&project-name=my-blog&repository-name=my-blog)
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/plutocms/templates&create_from_path=templates/blog)
@@ -51,6 +51,9 @@ npm create pluto@latest my-app -t none --backend git
 - `templates.json` is the registry: the name, the description, the backends and the changes the
   CLI makes for each backend. `create-pluto` and the store on the Pluto site read it.
   `bun run test` checks it against the folders.
+- `store/<id>/` holds what never ships: for example `store/<id>/demo/`, more sample content for
+  the live demo. A template with a `demo` URL in `templates.json` gets a static build on GitHub
+  Pages (`bun run demos`, then `.github/workflows/demos.yml` deploys `_site/`).
 - The root is a Bun workspace over `templates/*`. `bun install` installs every template, and
   `bun run build` builds them all.
 - A new template: a new folder (its id, for example `charon`), a `package.json` named

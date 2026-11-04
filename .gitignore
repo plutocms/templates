@@ -22,3 +22,7 @@ logs
 .env
 .env.*
 *.pem
+
+# Live demos (scripts/build-demos.mjs)
+.demos
+_site

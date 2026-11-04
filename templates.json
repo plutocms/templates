@@ -10,6 +10,7 @@
       "access": "free",
       "starter": true,
       "source": "gh:plutocms/templates/templates/blog",
+      "demo": "https://plutocms.github.io/templates/blog/",
       "backends": {
         "git": {},
         "supabase": { "layer": "@plutocms/supabase-blog", "remove": ["content"] }
