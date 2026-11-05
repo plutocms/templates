@@ -87,7 +87,7 @@ Push the project to a GitHub repository and deploy it (for example to Vercel). S
 your `.env` (`SUPABASE_URL`, `SUPABASE_KEY`, `DATABASE_URL`) in the settings of your host.
 
 **Docs:** [Supabase](https://pluto.vulmix.dev/docs/supabase) ·
-[Shop layer](https://pluto.vulmix.dev/docs/layers/shop)
+[Shop layer](https://pluto.vulmix.dev/docs/layers/supabase-shop)
 
 ## License
 
