@@ -5,6 +5,8 @@ status: published
 createdAt: 2026-10-19T12:00:00.000Z
 updatedAt: 2026-10-19T12:00:00.000Z
 publishedAt: 2026-10-19T12:00:00.000Z
+seo:
+  description: The first post of a blog on Pluto. Write in the admin, and each save is a commit.
 ---
 
 Welcome to your blog. Each post is a **Markdown file** in the `content/posts`
