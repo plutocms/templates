@@ -57,6 +57,8 @@ for (const template of demos) {
       ...process.env,
       ...env,
       PLUTO_BASE_URL: `${PAGES_BASE}/${template.id}/`,
+      // The full URL of the demo: the canonical URLs, the sitemap and the feed of @plutocms/seo.
+      NUXT_PUBLIC_WEBSITE_URL: template.demo,
     },
   })
   fs.cpSync(path.join(work, '.output', 'public'), path.join(SITE, template.id), {

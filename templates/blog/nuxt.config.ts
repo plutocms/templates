@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
-  extends: ["@plutocms/core"],
+  // @plutocms/seo: the SEO fields of a post, the head tags, sitemap.xml, robots.txt and feed.xml.
+  extends: ["@plutocms/core", "@plutocms/seo"],
 
   compatibilityDate: "2025-07-15",
 

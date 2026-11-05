@@ -60,6 +60,17 @@ starts in light mode (`colorMode.preference` in `nuxt.config.ts`). The texts are
 files. For a site in more than one language, see
 [Internationalization](https://pluto.vulmix.dev/docs/build/i18n).
 
+### SEO
+
+The template extends [`@plutocms/seo`](https://pluto.vulmix.dev/docs/layers/seo). A post has an SEO
+title, an SEO description, a social image and "Hide from search engines", with a search and social
+preview in the admin. Each post page gets the head tags (canonical URL, social card), and the site
+has `/sitemap.xml`, `/robots.txt` and an RSS feed at `/feed.xml` (the footer links it). The
+settings are in `app.config.ts` (`plutoSeo`).
+
+The full URLs need the address of your site: set `NUXT_PUBLIC_WEBSITE_URL` (for example
+`https://my-blog.com`). Vercel and Netlify give it, and the GitHub Pages workflow of the admin sets it.
+
 ## Go live
 
 Push the project to a GitHub repository and deploy it (for example to Vercel). With the Git CMS,
