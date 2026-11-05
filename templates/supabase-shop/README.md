@@ -26,23 +26,33 @@ layer. `npm run supabase-types` writes the database types.
 
 The site is small on purpose. Every file is a starting point:
 
-| File                             | What it does                                                                                                                                                   |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app/app.config.ts`              | The colors (`primary`, `secondary`, `neutral`). Pluto's palette is the default.                                                                                |
+| File                             | What it does                                                                                                                                                |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `app/app.config.ts`              | The colors (`primary`, `secondary`, `neutral`). Pluto's palette is the default.                                                                             |
 | `app/assets/css/tailwind.css`    | The CSS entry. `@plutocms/css/site` adds the Pluto look: the fonts, the dark mode and the `pluto-sky` background. Remove that line for a theme of your own. |
-| `app/layouts/default.vue`        | The header (your logo and the site name) and the footer.                                                                                                       |
-| `app/pages/index.vue`            | The store: the products, with search, categories and pages.                                                                                                    |
-| `app/pages/product/[slug].vue`   | One product: the photos, the price, the stock and the description.                                                                                             |
-| `app/components/ProductCard.vue` | A product in the grid.                                                                                                                                         |
-| `i18n/locales/*.json`            | The texts of the site (`site.*`), one file per language.                                                                                                       |
+| `app/layouts/default.vue`        | The header (your logo and the site name) and the footer.                                                                                                    |
+| `app/pages/index.vue`            | The store: the products, with search, categories and pages.                                                                                                 |
+| `app/pages/product/[slug].vue`   | One product: the photos, the price, the stock and the description.                                                                                          |
+| `app/pages/cart.vue`             | The cart: the products, their quantities and the subtotal.                                                                                                  |
+| `app/components/ProductCard.vue` | A product in the grid.                                                                                                                                      |
+| `i18n/locales/*.json`            | The texts of the site (`site.*`), one file per language.                                                                                                    |
 
 The site name comes from `websiteName` in `nuxt.config.ts` (or `NUXT_PUBLIC_WEBSITE_NAME`).
 
 Prices are stored in cents. `formatProductPrice(cents)` shows them in BRL. For another currency,
 pass it: `formatProductPrice(cents, { currency: 'USD' })`.
 
-The template has no cart and no checkout. Add them in your app, for example with a payment
-provider's hosted checkout on the product page.
+### Cart
+
+The cart is `useCart()` of [`@plutocms/shop`](https://github.com/plutocms/pluto/tree/main/packages/layers/addons/shop),
+which the shop layer brings. The browser keeps it (localStorage), so it needs no table and no
+setup. After each page load, it reads the products again: the price and the stock are current,
+and a product that is gone or sold out leaves the cart. A shopper cannot add more units than the
+stock. A product made to order has no limit.
+
+The template has no checkout. Add one in your app, for example with a payment provider's hosted
+checkout on the cart page. The checkout must compute the price on the server again: the cart is
+in the browser.
 
 ### Languages
 

@@ -49,6 +49,16 @@ useSeoMeta({
 });
 
 usePlutoEditLink("product", () => product.value?.id);
+
+const { add, quantityOf, limitOf } = useCart<PublicProduct>();
+// The units of this product in the cart, and whether one more fits (the stock, and the limit of
+// the cart). A sold out product has a limit of 0.
+const inCart = computed(() =>
+  product.value ? quantityOf(product.value.id) : 0,
+);
+const canAdd = computed(
+  () => !!product.value && inCart.value < limitOf(product.value),
+);
 </script>
 
 <template>
@@ -170,6 +180,24 @@ usePlutoEditLink("product", () => product.value?.id);
           >
             {{ stock }}
           </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+          <UButton
+            :label="t('site.cart.add')"
+            :disabled="!canAdd"
+            icon="i-lucide-shopping-bag"
+            size="lg"
+            @click="add(product)"
+          />
+          <ULink
+            v-if="inCart > 0"
+            to="/cart"
+            class="text-muted hover:text-primary inline-flex items-center gap-1 text-sm"
+          >
+            {{ t("site.cart.inCart", inCart) }}
+            <UIcon name="i-lucide-arrow-right" class="size-4" />
+          </ULink>
         </div>
 
         <p
