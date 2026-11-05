@@ -24,6 +24,21 @@
       "showImage": "Mostrar a imagem {number}",
       "showModel": "Mostrar o modelo 3D"
     },
+    "cart": {
+      "title": "Carrinho",
+      "open": "Abrir o carrinho | Abrir o carrinho, 1 produto | Abrir o carrinho, {count} produtos",
+      "add": "Adicionar ao carrinho",
+      "inCart": "{count} no seu carrinho",
+      "empty": "Seu carrinho está vazio",
+      "emptyHint": "Adicione um produto e ele aparece aqui.",
+      "quantity": "Quantidade de {name}",
+      "remove": "Remover {name}",
+      "items": "1 produto | {count} produtos",
+      "subtotalHint": "O frete não está incluído.",
+      "clear": "Esvaziar o carrinho",
+      "removed": "Um produto não está mais disponível e saiu do seu carrinho. | {count} produtos não estão mais disponíveis e saíram do seu carrinho.",
+      "changed": "O preço ou o estoque de um produto mudou. O carrinho mostra os valores novos."
+    },
     "footer": {
       "builtWith": "Feito com Pluto"
     },

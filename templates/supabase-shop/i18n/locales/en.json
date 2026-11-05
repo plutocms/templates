@@ -24,6 +24,21 @@
       "showImage": "Show image {number}",
       "showModel": "Show the 3D model"
     },
+    "cart": {
+      "title": "Cart",
+      "open": "Open the cart | Open the cart, 1 product | Open the cart, {count} products",
+      "add": "Add to cart",
+      "inCart": "{count} in your cart",
+      "empty": "Your cart is empty",
+      "emptyHint": "Add a product, and it shows here.",
+      "quantity": "Quantity of {name}",
+      "remove": "Remove {name}",
+      "items": "1 product | {count} products",
+      "subtotalHint": "Shipping is not included.",
+      "clear": "Empty the cart",
+      "removed": "A product is no longer available, so it left your cart. | {count} products are no longer available, so they left your cart.",
+      "changed": "The price or the stock of a product changed. The cart shows the new values."
+    },
     "footer": {
       "builtWith": "Built with Pluto"
     },

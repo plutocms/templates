@@ -10,12 +10,17 @@ useHead({
 // PlutoRoot moves the page down under the admin bar while it shows. The
 // layout is then one screen less the bar, so a short page does not scroll.
 const { visible: offset } = usePlutoAdminBar();
+
+// The count shows once the browser has loaded the saved cart (`ready`), so it never flashes.
+const { count, ready } = useCart();
 </script>
 
 <template>
   <div
     :class="
-      offset ? 'min-h-[calc(100dvh-var(--pluto-admin-bar-height))]' : 'min-h-dvh'
+      offset
+        ? 'min-h-[calc(100dvh-var(--pluto-admin-bar-height))]'
+        : 'min-h-dvh'
     "
     class="bg-default text-default flex flex-col"
   >
@@ -35,6 +40,14 @@ const { visible: offset } = usePlutoAdminBar();
         <div class="flex items-center gap-1">
           <LanguageSwitch />
           <UColorModeButton color="neutral" variant="ghost" />
+          <UButton
+            :label="ready && count > 0 ? String(count) : undefined"
+            :aria-label="t('site.cart.open', ready ? count : 0)"
+            to="/cart"
+            icon="i-lucide-shopping-bag"
+            color="neutral"
+            variant="ghost"
+          />
         </div>
       </UContainer>
     </header>
