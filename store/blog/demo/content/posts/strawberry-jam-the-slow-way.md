@@ -3,6 +3,12 @@ title: Strawberry jam, the slow way
 excerpt: Three ingredients, one afternoon, and a kitchen that smells like June.
 cover: strawberries
 status: published
+categories:
+  - food
+tags:
+  - berries
+  - recipes
+  - slow-living
 createdAt: 2026-09-30T11:00:00.000Z
 updatedAt: 2026-09-30T11:00:00.000Z
 publishedAt: 2026-09-30T11:00:00.000Z

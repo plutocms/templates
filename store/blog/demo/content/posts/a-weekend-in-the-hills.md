@@ -3,6 +3,10 @@ title: A weekend in the hills
 excerpt: Two days, one small cabin, no signal, and a lot of rain.
 cover: green-hills
 status: published
+categories:
+  - travel
+tags:
+  - hiking
 createdAt: 2026-10-21T16:00:00.000Z
 updatedAt: 2026-10-21T16:00:00.000Z
 publishedAt: 2026-10-21T16:00:00.000Z

@@ -3,6 +3,10 @@ title: The raspberry season
 excerpt: The canes at the end of the garden, and five ways to eat what they give.
 cover: raspberries
 status: published
+categories:
+  - food
+tags:
+  - berries
 createdAt: 2026-09-02T08:00:00.000Z
 updatedAt: 2026-09-02T08:00:00.000Z
 publishedAt: 2026-09-02T08:00:00.000Z

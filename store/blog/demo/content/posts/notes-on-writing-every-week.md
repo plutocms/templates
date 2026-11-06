@@ -3,6 +3,10 @@ title: Notes on writing every week
 excerpt: What one year of a weekly post taught me about habits, and about deadlines.
 cover: open-book
 status: published
+categories:
+  - notes
+tags:
+  - writing
 createdAt: 2026-10-14T09:00:00.000Z
 updatedAt: 2026-10-14T09:00:00.000Z
 publishedAt: 2026-10-14T09:00:00.000Z

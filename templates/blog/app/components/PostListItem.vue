@@ -2,6 +2,8 @@
 const props = defineProps<{ post: PlutoPostSummary }>();
 
 const date = computed(() => formatPublishedDate(props.post));
+// The item is one link, so the category is text here. Its page is linked on the post.
+const category = computed(() => props.post.categories?.[0]?.label);
 </script>
 
 <template>
@@ -10,7 +12,11 @@ const date = computed(() => formatPublishedDate(props.post));
     class="group flex items-start gap-5 py-6"
   >
     <div class="min-w-0 flex-1">
-      <time v-if="date" class="text-sm text-muted">{{ date }}</time>
+      <p class="text-sm text-muted">
+        <time v-if="date">{{ date }}</time>
+        <span v-if="date && category" aria-hidden="true"> · </span>
+        <span v-if="category">{{ category }}</span>
+      </p>
       <h2
         class="mt-1 text-lg font-semibold text-balance text-heading group-hover:underline group-hover:underline-offset-4"
       >

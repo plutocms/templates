@@ -3,6 +3,10 @@ title: Lost in the old streets
 excerpt: "A city day with no map and no plan, only a rule: turn left when in doubt."
 cover: old-street
 status: published
+categories:
+  - travel
+tags:
+  - cities
 createdAt: 2026-09-09T10:00:00.000Z
 updatedAt: 2026-09-09T10:00:00.000Z
 publishedAt: 2026-09-09T10:00:00.000Z

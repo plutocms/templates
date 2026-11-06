@@ -3,6 +3,10 @@ title: The road along the fjord
 excerpt: Three days by car, two ferries, and a view at every turn.
 cover: fjord
 status: published
+categories:
+  - travel
+tags:
+  - water
 createdAt: 2026-08-26T13:00:00.000Z
 updatedAt: 2026-08-26T13:00:00.000Z
 publishedAt: 2026-08-26T13:00:00.000Z

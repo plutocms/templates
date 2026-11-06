@@ -12,6 +12,7 @@ const year = new Date().getFullYear();
   >
     <p>© {{ year }} {{ siteName }}</p>
     <div class="flex items-center gap-4">
+      <NuxtLink to="/tags" class="hover:text-heading">Tags</NuxtLink>
       <a :href="feed" class="hover:text-heading">RSS</a>
       <a
         href="https://pluto.vulmix.dev"

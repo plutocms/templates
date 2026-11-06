@@ -3,6 +3,11 @@ title: A quiet morning routine
 excerpt: Coffee, a short walk, and one page of notes before the day starts.
 cover: morning-coffee
 status: published
+categories:
+  - notes
+tags:
+  - coffee
+  - slow-living
 createdAt: 2026-10-28T07:30:00.000Z
 updatedAt: 2026-10-28T07:30:00.000Z
 publishedAt: 2026-10-28T07:30:00.000Z

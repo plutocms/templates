@@ -60,6 +60,22 @@ for (const template of registry.templates.filter((entry) => entry.demo)) {
           assert.ok(record.alt, 'the cover has no alt text')
         }
       })
+
+      it(`${name}: each tag and category has a term file with a title`, () => {
+        const post = frontmatter(path.join(posts, name))
+        for (const [field, folder] of [
+          ['tags', 'tags'],
+          ['categories', 'categories'],
+        ]) {
+          for (const id of post[field] ?? []) {
+            const term = frontmatter(
+              path.join(demo, 'content', folder, `${id}.md`)
+            )
+            assert.equal(typeof term.title, 'string', `${folder}/${id}`)
+            assert.ok(term.title, `${folder}/${id} has an empty title`)
+          }
+        }
+      })
     }
   })
 }

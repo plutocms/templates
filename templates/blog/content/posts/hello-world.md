@@ -2,6 +2,10 @@
 title: Hello, world
 excerpt: The first post of your new blog. Edit or delete it in the admin.
 status: published
+categories:
+  - news
+tags:
+  - welcome
 createdAt: 2026-10-19T12:00:00.000Z
 updatedAt: 2026-10-19T12:00:00.000Z
 publishedAt: 2026-10-19T12:00:00.000Z
