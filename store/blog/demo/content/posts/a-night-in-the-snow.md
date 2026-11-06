@@ -3,6 +3,12 @@ title: A night in the snow
 excerpt: "My first winter camp: what went well, and what I will do differently."
 cover: snow-tent
 status: published
+categories:
+  - outdoors
+  - travel
+tags:
+  - camping
+  - winter
 createdAt: 2026-09-16T18:00:00.000Z
 updatedAt: 2026-09-16T18:00:00.000Z
 publishedAt: 2026-09-16T18:00:00.000Z

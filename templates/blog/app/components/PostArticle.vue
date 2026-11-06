@@ -17,6 +17,20 @@ const date = computed(() =>
     </NuxtLink>
 
     <header class="mt-8">
+      <p v-if="post.categories?.length" class="mb-2 text-sm font-medium">
+        <template v-for="(category, index) in post.categories" :key="category.id">
+          <span v-if="index" class="text-muted" aria-hidden="true"> · </span>
+          <NuxtLink
+            v-if="category.slug"
+            :to="`/categories/${category.slug}`"
+            class="text-heading hover:underline hover:underline-offset-4"
+          >
+            {{ category.label }}
+          </NuxtLink>
+          <span v-else class="text-heading">{{ category.label }}</span>
+        </template>
+      </p>
+
       <p class="text-sm text-muted">
         <time v-if="date">{{ date }}</time>
         <span v-if="date" aria-hidden="true"> · </span>
@@ -50,5 +64,7 @@ const date = computed(() =>
     />
 
     <PlutoHtml :html="post.html" tag="div" class="mt-10" data-pluto-post-body />
+
+    <TermChips :terms="post.tags" base="tags" class="mt-12" />
   </article>
 </template>

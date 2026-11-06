@@ -45,7 +45,11 @@ starting point:
 | `app/assets/css/main.css`           | The look, in plain CSS: the colors (light and dark) and the post body (`.pluto-prose`).                     |
 | `app/components/SiteNavbar.vue`     | The header: your logo, the site name and the light/dark switch (`ColorModeButton` of Pluto).                |
 | `app/components/SiteFooter.vue`     | The footer.                                                                                                 |
-| `app/pages/index.vue`               | The home page: the list of posts (`PostListItem.vue`), with search and pages.                               |
+| `app/pages/index.vue`               | The home page: the title, the category bar (`CategoryBar.vue`) and the list of posts.                       |
+| `app/components/PostList.vue`       | The list of posts (`PostListItem.vue`) with search and pages. The home page and the term pages use it.      |
+| `app/pages/categories/[slug].vue`   | The page of a category: its posts. `app/pages/tags/[slug].vue` is the same for a tag.                       |
+| `app/pages/tags/index.vue`          | Every tag. The footer links it.                                                                             |
+| `app/components/TermChips.vue`      | Tags or categories as links to their pages.                                                                 |
 | `app/components/PostArticle.vue`    | One post. The post page and the preview of the post editor both use it, so the preview looks like the site. |
 | `app/components/PostNavigation.vue` | The newer and the older post, under a post.                                                                 |
 | `public/favicon.svg`                | The icon of the site.                                                                                       |
@@ -53,12 +57,30 @@ starting point:
 The site name and description come from `websiteName` and `websiteDescription` in `nuxt.config.ts`
 (or `NUXT_PUBLIC_WEBSITE_NAME` and `NUXT_PUBLIC_WEBSITE_DESCRIPTION`). The pages read the posts with
 the [site composables](https://pluto.vulmix.dev/docs/build/public-api#in-a-nuxt-site) of Pluto:
-`usePosts`, `usePost` and `useAdjacentPosts`. An editor also sees a draft on its page, with a
+`usePosts`, `usePost`, `useAdjacentPosts`, `useTags` and `useCategories`. An editor also sees a draft on its page, with a
 **Draft** badge. Each color of `main.css` is also a Tailwind class (`text-heading`, `text-muted`,
 `border-line` and others), so a change of a color changes the whole site. The site
 starts in light mode (`colorMode.preference` in `nuxt.config.ts`). The texts are in English, in the
 files. For a site in more than one language, see
 [Internationalization](https://pluto.vulmix.dev/docs/build/i18n).
+
+### Tags and categories
+
+A post has categories and tags, on both backends. Add them in the side panel of the post editor,
+and create a new one from the field. The home page shows the categories as links. Each category
+and each tag has a page, `/categories/<slug>` and `/tags/<slug>`, with the posts of the term, search
+and pages. `/tags` lists every tag. A post shows its categories above the title and its tags under
+the text.
+
+- **Git CMS:** a term is a Markdown file with a `title`, in `content/categories` or
+  `content/tags`. The file name is the slug, and a post lists the slugs in its frontmatter
+  (`categories:` and `tags:`). The sample post uses `news` and `welcome`.
+- **Supabase:** the terms are in the `categories` and `tags` tables. Run the migrations of the
+  blog layer from `/admin/migrations`.
+- **Static sites:** every term page needs a link on the site, so the build finds it. The home page
+  links each category and `/tags` links each tag. A tag with no link has no page in the build.
+
+The admin needs the `terms:manage` capability to create or edit a term.
 
 ### SEO
 

@@ -3,6 +3,11 @@ title: A slow week in the valley
 excerpt: Seven days, one cabin by the river, and no plan at all.
 cover: valley-river
 status: published
+categories:
+  - travel
+tags:
+  - hiking
+  - slow-living
 createdAt: 2026-08-12T17:00:00.000Z
 updatedAt: 2026-08-12T17:00:00.000Z
 publishedAt: 2026-08-12T17:00:00.000Z

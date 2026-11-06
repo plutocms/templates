@@ -3,6 +3,10 @@ title: Out on the lake at dawn
 excerpt: A borrowed canoe, a flask of tea, and a lake as flat as glass.
 cover: lake-canoe
 status: published
+categories:
+  - outdoors
+tags:
+  - water
 createdAt: 2026-10-07T06:45:00.000Z
 updatedAt: 2026-10-07T06:45:00.000Z
 publishedAt: 2026-10-07T06:45:00.000Z
