@@ -3,6 +3,8 @@ title: The café on the corner
 excerpt: Why I do my best work at the same table, three mornings a week.
 cover: corner-cafe
 status: published
+authors:
+  - tomas-reyes
 categories:
   - food
 tags:

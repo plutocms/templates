@@ -3,6 +3,8 @@ title: A slow week in the valley
 excerpt: Seven days, one cabin by the river, and no plan at all.
 cover: valley-river
 status: published
+authors:
+  - mara-lindqvist
 categories:
   - travel
 tags:

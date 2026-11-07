@@ -2,6 +2,8 @@
 title: Hello, world
 excerpt: The first post of your new blog. Edit or delete it in the admin.
 status: published
+authors:
+  - editor
 categories:
   - news
 tags:

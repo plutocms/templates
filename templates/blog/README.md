@@ -50,6 +50,9 @@ starting point:
 | `app/pages/categories/[slug].vue`   | The page of a category: its posts. `app/pages/tags/[slug].vue` is the same for a tag.                       |
 | `app/pages/tags/index.vue`          | Every tag. The footer links it.                                                                             |
 | `app/components/TermChips.vue`      | Tags or categories as links to their pages.                                                                 |
+| `app/pages/authors/[slug].vue`      | The page of an author: the avatar, the bio and the posts.                                                   |
+| `app/components/AuthorByline.vue`   | The authors under the title of a post. `AuthorBox.vue` shows each author after the post.                    |
+| `app/components/AuthorAvatar.vue`   | The avatar of an author: the image, else the initials.                                                      |
 | `app/components/PostArticle.vue`    | One post. The post page and the preview of the post editor both use it, so the preview looks like the site. |
 | `app/components/PostNavigation.vue` | The newer and the older post, under a post.                                                                 |
 | `public/favicon.svg`                | The icon of the site.                                                                                       |
@@ -57,7 +60,7 @@ starting point:
 The site name and description come from `websiteName` and `websiteDescription` in `nuxt.config.ts`
 (or `NUXT_PUBLIC_WEBSITE_NAME` and `NUXT_PUBLIC_WEBSITE_DESCRIPTION`). The pages read the posts with
 the [site composables](https://pluto.vulmix.dev/docs/build/public-api#in-a-nuxt-site) of Pluto:
-`usePosts`, `usePost`, `useAdjacentPosts`, `useTags` and `useCategories`. An editor also sees a draft on its page, with a
+`usePosts`, `usePost`, `useAdjacentPosts`, `useTags`, `useCategories` and `useAuthor`. An editor also sees a draft on its page, with a
 **Draft** badge. Each color of `main.css` is also a Tailwind class (`text-heading`, `text-muted`,
 `border-line` and others), so a change of a color changes the whole site. The site
 starts in light mode (`colorMode.preference` in `nuxt.config.ts`). The texts are in English, in the
@@ -82,11 +85,31 @@ the text.
 
 The admin needs the `terms:manage` capability to create or edit a term.
 
+### Authors
+
+A post has one or more authors, on both backends. An author has a name, a bio and an avatar. Add
+them in the side panel of the post editor, and create a new one from the field. A new post gets the
+authors that you saved last time. A post shows the authors under its title and a box for each
+author after the text. Each author has a page, `/authors/<slug>`, with the bio and the posts.
+
+An author is public once you save it. It has no link to a user account, so no email or role goes to
+the site. A guest author or a pen name is a normal author.
+
+- **Git CMS:** an author is a Markdown file with a `name`, a `bio` and an `avatar` (a media id), in
+  `content/authors`. The file name is the slug, and a post lists the slugs in its frontmatter
+  (`authors:`), in byline order. The sample post uses `editor`: change its name and bio in the admin.
+- **Supabase:** the authors are in the `authors` table. Run the migrations of the blog layer from
+  `/admin/migrations`.
+- **Static sites:** the posts link each author, so the build finds the author pages.
+
+The admin needs the `authors:manage` capability to create or edit an author.
+
 ### SEO
 
 The template extends [`@plutocms/seo`](https://pluto.vulmix.dev/docs/layers/seo). A post has an SEO
 title, an SEO description, a social image and "Hide from search engines", with a search and social
-preview in the admin. Each post page gets the head tags (canonical URL, social card), and the site
+preview in the admin. Each post page gets the head tags (canonical URL, social card, the authors
+and a JSON-LD `BlogPosting`), and the site
 has `/sitemap.xml`, `/robots.txt` and an RSS feed at `/feed.xml` (the footer links it). The
 settings are in `app.config.ts` (`plutoSeo`).
 

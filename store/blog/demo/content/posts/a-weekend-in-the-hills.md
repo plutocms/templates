@@ -3,6 +3,8 @@ title: A weekend in the hills
 excerpt: Two days, one small cabin, no signal, and a lot of rain.
 cover: green-hills
 status: published
+authors:
+  - mara-lindqvist
 categories:
   - travel
 tags:

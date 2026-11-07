@@ -3,6 +3,8 @@ title: Out on the lake at dawn
 excerpt: A borrowed canoe, a flask of tea, and a lake as flat as glass.
 cover: lake-canoe
 status: published
+authors:
+  - mara-lindqvist
 categories:
   - outdoors
 tags:
