@@ -3,6 +3,8 @@ title: A quiet morning routine
 excerpt: Coffee, a short walk, and one page of notes before the day starts.
 cover: morning-coffee
 status: published
+authors:
+  - iris-okafor
 categories:
   - notes
 tags:

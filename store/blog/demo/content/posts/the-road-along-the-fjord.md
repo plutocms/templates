@@ -3,6 +3,8 @@ title: The road along the fjord
 excerpt: Three days by car, two ferries, and a view at every turn.
 cover: fjord
 status: published
+authors:
+  - mara-lindqvist
 categories:
   - travel
 tags:

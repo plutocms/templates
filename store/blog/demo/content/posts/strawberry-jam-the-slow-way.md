@@ -3,6 +3,8 @@ title: Strawberry jam, the slow way
 excerpt: Three ingredients, one afternoon, and a kitchen that smells like June.
 cover: strawberries
 status: published
+authors:
+  - tomas-reyes
 categories:
   - food
 tags:

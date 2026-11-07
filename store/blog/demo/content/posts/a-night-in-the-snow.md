@@ -3,6 +3,8 @@ title: A night in the snow
 excerpt: "My first winter camp: what went well, and what I will do differently."
 cover: snow-tent
 status: published
+authors:
+  - mara-lindqvist
 categories:
   - outdoors
   - travel

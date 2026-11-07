@@ -3,6 +3,8 @@ title: A walk along the cliffs
 excerpt: Twelve kilometres of coast path, from one small harbour to the next.
 cover: sea-cliffs
 status: published
+authors:
+  - mara-lindqvist
 categories:
   - outdoors
 tags:

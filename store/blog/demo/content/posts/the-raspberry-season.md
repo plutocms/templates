@@ -3,6 +3,9 @@ title: The raspberry season
 excerpt: The canes at the end of the garden, and five ways to eat what they give.
 cover: raspberries
 status: published
+authors:
+  - tomas-reyes
+  - mara-lindqvist
 categories:
   - food
 tags:

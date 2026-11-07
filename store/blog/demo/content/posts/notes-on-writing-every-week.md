@@ -3,6 +3,8 @@ title: Notes on writing every week
 excerpt: What one year of a weekly post taught me about habits, and about deadlines.
 cover: open-book
 status: published
+authors:
+  - iris-okafor
 categories:
   - notes
 tags:

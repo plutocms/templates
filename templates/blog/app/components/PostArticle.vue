@@ -18,7 +18,10 @@ const date = computed(() =>
 
     <header class="mt-8">
       <p v-if="post.categories?.length" class="mb-2 text-sm font-medium">
-        <template v-for="(category, index) in post.categories" :key="category.id">
+        <template
+          v-for="(category, index) in post.categories"
+          :key="category.id"
+        >
           <span v-if="index" class="text-muted" aria-hidden="true"> · </span>
           <NuxtLink
             v-if="category.slug"
@@ -52,6 +55,8 @@ const date = computed(() =>
       <p v-if="post.excerpt" class="mt-4 text-lg text-pretty text-muted">
         {{ post.excerpt }}
       </p>
+
+      <AuthorByline :authors="post.authors" class="mt-6" />
     </header>
 
     <PlutoImage
@@ -66,5 +71,7 @@ const date = computed(() =>
     <PlutoHtml :html="post.html" tag="div" class="mt-10" data-pluto-post-body />
 
     <TermChips :terms="post.tags" base="tags" class="mt-12" />
+
+    <AuthorBox :authors="post.authors" class="mt-12" />
   </article>
 </template>

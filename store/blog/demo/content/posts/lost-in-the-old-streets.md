@@ -3,6 +3,8 @@ title: Lost in the old streets
 excerpt: "A city day with no map and no plan, only a rule: turn left when in doubt."
 cover: old-street
 status: published
+authors:
+  - mara-lindqvist
 categories:
   - travel
 tags:
