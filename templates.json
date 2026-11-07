@@ -1,5 +1,5 @@
 {
-  "$comment": "The registry of the official templates. create-pluto and the store on the Pluto site read it. Each id is a folder in templates/.",
+  "$comment": "The registry of the official templates. create-pluto and the store on the Pluto site read it. Each id is a folder in templates/. image is a path in this repo: the preview on the store (1440x900, WebP).",
   "version": 1,
   "templates": [
     {
@@ -10,6 +10,7 @@
       "access": "free",
       "starter": true,
       "source": "gh:plutocms/templates/templates/blog",
+      "image": "store/blog/preview.webp",
       "demo": "https://plutocms.github.io/templates/blog/",
       "backends": {
         "git": {},
@@ -24,6 +25,7 @@
       "access": "free",
       "starter": true,
       "source": "gh:plutocms/templates/templates/supabase-shop",
+      "image": "store/supabase-shop/preview.webp",
       "demo": "https://plutocms.github.io/templates/supabase-shop/",
       "backends": {
         "supabase": {}
@@ -38,6 +40,7 @@
       "starter": true,
       "layers": true,
       "source": "gh:plutocms/templates/templates/dashboard",
+      "image": "store/dashboard/preview.webp",
       "backends": {
         "git": {},
         "supabase": { "layer": "@plutocms/supabase" }

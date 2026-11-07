@@ -56,6 +56,16 @@ describe('templates.json', () => {
         }
       })
 
+      it('has its preview image in store/<id>/', () => {
+        if (template.image !== undefined) {
+          assert.match(
+            template.image,
+            new RegExp(`^store/${template.id}/[a-z0-9-]+\\.(webp|png|jpg)$`)
+          )
+          assert.ok(fs.existsSync(template.image), `"${template.image}" is missing`)
+        }
+      })
+
       it('lists known backends, with known changes', () => {
         const backends = Object.entries(template.backends ?? {})
         assert.ok(backends.length > 0, 'no backend')
