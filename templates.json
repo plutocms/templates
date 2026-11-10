@@ -9,6 +9,7 @@
       "category": "blog",
       "access": "free",
       "starter": true,
+      "seo": true,
       "source": "gh:plutocms/templates/templates/blog",
       "image": "store/blog/preview.webp",
       "demo": "https://plutocms.github.io/templates/blog/",

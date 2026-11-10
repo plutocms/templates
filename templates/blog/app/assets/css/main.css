@@ -46,9 +46,16 @@
     margin-top: calc(var(--spacing) * 5);
   }
 
-  .pluto-prose :is(h2, h3, strong, th) {
+  .pluto-prose :is(h1, h2, h3, h4, strong, th) {
     color: var(--color-heading);
     font-weight: var(--font-weight-semibold);
+  }
+
+  .pluto-prose h1 {
+    margin-top: calc(var(--spacing) * 12);
+    font-size: var(--text-3xl);
+    line-height: var(--text-3xl--line-height);
+    letter-spacing: var(--tracking-tight);
   }
 
   .pluto-prose h2 {
@@ -64,7 +71,14 @@
     line-height: var(--text-xl--line-height);
   }
 
-  .pluto-prose :is(h2, h3) + * {
+  .pluto-prose h4 {
+    margin-top: calc(var(--spacing) * 8);
+    font-size: var(--text-lg);
+    line-height: var(--text-lg--line-height);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .pluto-prose :is(h1, h2, h3, h4) + * {
     margin-top: calc(var(--spacing) * 3);
   }
 
