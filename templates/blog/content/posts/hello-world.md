@@ -25,3 +25,6 @@ so the history of every post is in git.
 
 - Drafts stay hidden on the site.
 - Publish when the post is ready.
+
+::callout{type="tip" title="Components in posts" text="This box is the Callout component of the site. In the editor, click the puzzle icon to add one, then click it to change its text."}
+::

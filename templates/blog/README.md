@@ -104,13 +104,23 @@ the site. A guest author or a pen name is a normal author.
 
 The admin needs the `authors:manage` capability to create or edit an author.
 
+### Components in posts
+
+`app/components/content/Callout.vue` is a content component: a note, a tip or a warning in a box.
+The post editor lists it under **Insert a component** (the puzzle icon), and the sample post uses it.
+Every file of `app/components/content/` that calls `definePlutoBlock` shows there too. See
+[Components in posts](https://pluto.vulmix.dev/docs/extend/author-components#components-in-posts).
+
 ### SEO
 
-The template extends [`@plutocms/seo`](https://pluto.vulmix.dev/docs/layers/seo). A post has an SEO
+`create-pluto` asks "Add SEO?" (yes by default). Yes adds
+[`@plutocms/seo`](https://pluto.vulmix.dev/docs/layers/seo) to `extends` and `package.json`. To add it
+later, install `@plutocms/seo` and add it after `@plutocms/core` in `extends`. With the layer, a post has an SEO
 title, an SEO description, a social image and "Hide from search engines", with a search and social
 preview in the admin. Each post page gets the head tags (canonical URL, social card, the authors
 and a JSON-LD `BlogPosting`), and the site
-has `/sitemap.xml`, `/robots.txt` and an RSS feed at `/feed.xml` (the footer links it). The
+has `/sitemap.xml`, `/robots.txt` and an RSS feed at `/feed.xml` (the footer links it only with the
+layer). The
 settings are in `app.config.ts` (`plutoSeo`).
 
 The full URLs need the address of your site: set `NUXT_PUBLIC_WEBSITE_URL` (for example

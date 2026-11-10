@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@plutocms/core": "^0.66.1",
-    "@plutocms/seo": "^0.2.0",
     "nuxt": "^4.6.3",
     "vue": "^3.5.41",
     "vue-router": "^5.2.0"
