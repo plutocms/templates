@@ -10,7 +10,7 @@
     "supabase-types": "bun node_modules/@plutocms/supabase/scripts/supabase-typegen.ts"
   },
   "dependencies": {
-    "@plutocms/3d": "^0.4.0",
+    "@plutocms/3d": "^0.4.1",
     "@plutocms/core": "^0.67.0",
     "@plutocms/supabase-shop": "^0.24.1",
     "nuxt": "^4.6.3",
