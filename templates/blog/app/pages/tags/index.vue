@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// Every tag. The link to each tag page also lets a static build find the page.
 const { tags } = await useTags({ limit: 100, search: false, page: false });
 
 const terms = computed<PlutoPublicReference[]>(() =>

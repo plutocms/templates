@@ -16,7 +16,6 @@ if (error.value) {
 const images = computed(() =>
   product.value ? productImages(product.value) : [],
 );
-// The gallery: the images, then the 3D models. A model shows in the viewer of @plutocms/3d.
 const gallery = computed(() =>
   product.value ? [...images.value, ...productModels(product.value)] : [],
 );
@@ -51,8 +50,6 @@ useSeoMeta({
 usePlutoEditLink("product", () => product.value?.id);
 
 const { add, quantityOf, limitOf } = useCart<PublicProduct>();
-// The units of this product in the cart, and whether one more fits (the stock, and the limit of
-// the cart). A sold out product has a limit of 0.
 const inCart = computed(() =>
   product.value ? quantityOf(product.value.id) : 0,
 );

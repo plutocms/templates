@@ -2,7 +2,6 @@
 const route = useRoute();
 const slug = () => String(route.params.slug);
 
-// A missing category shows the 404 page.
 const { category } = await useCategory(slug);
 </script>
 

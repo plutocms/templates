@@ -1,12 +1,13 @@
 <script setup lang="ts">
-// The avatar of an author: the image, else the initials in a circle.
-const props = defineProps<{
+interface Props {
+  /** The author: the image, else the initials in a circle. */
   author: { label?: string; name?: string; avatar?: PlutoPublicMedia | null };
-  // The size in pixels. The image loads at two times this size.
+  /** The size in pixels. The image loads at twice this size. */
   size?: number;
-}>();
+}
 
-const px = computed(() => props.size ?? 32);
+const props = withDefaults(defineProps<Props>(), { size: 32 });
+
 const name = computed(() => props.author.label ?? props.author.name ?? "");
 const initials = computed(() =>
   name.value
@@ -20,22 +21,22 @@ const initials = computed(() =>
 
 <template>
   <PlutoImage
-    v-if="author.avatar"
-    :media="author.avatar"
-    :width="px"
-    :height="px"
-    :sizes="`${px * 2}px`"
+    v-if="props.author.avatar"
+    :media="props.author.avatar"
+    :width="props.size"
+    :height="props.size"
+    :sizes="`${props.size * 2}px`"
     :alt="name"
     class="shrink-0 rounded-full object-cover"
-    :style="{ width: `${px}px`, height: `${px}px` }"
+    :style="{ width: `${props.size}px`, height: `${props.size}px` }"
   />
   <span
     v-else
     class="inline-flex shrink-0 items-center justify-center rounded-full bg-line font-medium text-heading"
     :style="{
-      width: `${px}px`,
-      height: `${px}px`,
-      fontSize: `${Math.round(px * 0.4)}px`,
+      width: `${props.size}px`,
+      height: `${props.size}px`,
+      fontSize: `${Math.round(props.size * 0.4)}px`,
     }"
     aria-hidden="true"
   >

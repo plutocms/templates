@@ -1,13 +1,13 @@
 <script setup lang="ts">
-// The list of posts with a search box and pages, for the home page and the term pages. The default
-// slot is the heading above the search box. `filter` narrows the list, for example
-// `{ tags: 'hiking' }`.
-const props = defineProps<{
+interface Props {
+  /** Narrows the list, for example `{ tags: 'hiking' }`. */
   filter?: Record<string, string>;
+  /** The text when the list has no posts. */
   emptyText?: string;
-}>();
+}
 
-// The search box writes `?q=` of the URL, and the page comes from `?page=`.
+const props = defineProps<Props>();
+
 const { posts, search, page, pages, pageLink, error } = await usePosts({
   limit: 10,
   filter: () => props.filter,
@@ -49,7 +49,7 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
       </button>
     </p>
 
-    <p v-else-if="!posts.length && emptyText">{{ emptyText }}</p>
+    <p v-else-if="!posts.length && props.emptyText">{{ props.emptyText }}</p>
 
     <p v-else-if="!posts.length">
       No posts yet.

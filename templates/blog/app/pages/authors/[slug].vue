@@ -2,7 +2,6 @@
 const route = useRoute();
 const slug = () => String(route.params.slug);
 
-// A missing author shows the 404 page.
 const { author } = await useAuthor(slug);
 </script>
 

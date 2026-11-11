@@ -7,11 +7,8 @@ useHead({
     title && title !== siteName ? `${title} - ${siteName}` : siteName,
 });
 
-// PlutoRoot moves the page down under the admin bar while it shows. The
-// layout is then one screen less the bar, so a short page does not scroll.
 const { visible: offset } = usePlutoAdminBar();
 
-// The count shows once the browser has loaded the saved cart (`ready`), so it never flashes.
 const { count, ready } = useCart();
 </script>
 

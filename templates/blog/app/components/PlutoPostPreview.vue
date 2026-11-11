@@ -1,12 +1,14 @@
 <script setup lang="ts">
-// The preview of the post editor. `item` has the shape of the public API, so it
-// renders with the component of the post page.
-defineProps<{
+interface Props {
+  /** The content type of the item. */
   contentType: string;
+  /** The post in the editor, with the shape of the public API. */
   item: PlutoPreviewItem<PlutoPost>;
-}>();
+}
+
+const props = defineProps<Props>();
 </script>
 
 <template>
-  <PostArticle :post="item" />
+  <PostArticle :post="props.item" />
 </template>

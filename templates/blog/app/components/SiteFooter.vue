@@ -1,7 +1,5 @@
 <script setup lang="ts">
 const { name: siteName } = usePlutoSite();
-// The RSS feed of @plutocms/seo, under the base path, so a site under a sub path (GitHub Pages)
-// links its own feed. Without the SEO layer there is no feed, and no link.
 const hasFeed = Boolean(useAppConfig().plutoSeo);
 const feed = `${useRuntimeConfig().app.baseURL}feed.xml`;
 const year = new Date().getFullYear();

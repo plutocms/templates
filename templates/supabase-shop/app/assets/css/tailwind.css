@@ -3,3 +3,7 @@
 @import "@plutocms/css";
 @import "@plutocms/css/base";
 @import "@plutocms/css/site";
+
+@theme {
+  --font-display: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+}

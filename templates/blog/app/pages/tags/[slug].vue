@@ -2,7 +2,6 @@
 const route = useRoute();
 const slug = () => String(route.params.slug);
 
-// A missing tag shows the 404 page.
 const { tag } = await useTag(slug);
 </script>
 

@@ -1,14 +1,17 @@
 <script setup lang="ts">
-// The authors after a post: one box for each, with the avatar, the name, the bio and a link to the
-// other posts of the author.
-defineProps<{ authors?: PlutoPostAuthor[] }>();
+interface Props {
+  /** The authors of the post: one box for each. */
+  authors?: PlutoPostAuthor[];
+}
+
+const props = defineProps<Props>();
 </script>
 
 <template>
-  <section v-if="authors?.length" class="flex flex-col gap-4">
+  <section v-if="props.authors?.length" class="flex flex-col gap-4">
     <h2 class="sr-only">About the authors</h2>
     <div
-      v-for="author in authors"
+      v-for="author in props.authors"
       :key="author.id"
       class="flex items-start gap-4 rounded-xl bg-surface p-5"
     >

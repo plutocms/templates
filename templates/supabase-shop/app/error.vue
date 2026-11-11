@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import type { NuxtError } from "#app";
 
-const props = defineProps<{ error: NuxtError }>();
+interface Props {
+  /** The error that Nuxt shows. */
+  error: NuxtError;
+}
+
+const props = defineProps<Props>();
 
 const { t } = usePlutoSiteI18n();
 const notFound = computed(() => props.error.statusCode === 404);
@@ -20,7 +25,7 @@ useSeoMeta({
         class="flex flex-col items-center gap-5 py-24 text-center sm:py-32"
       >
         <p class="font-display text-primary text-7xl font-semibold">
-          {{ error.statusCode }}
+          {{ props.error.statusCode }}
         </p>
         <h1 class="text-highlighted text-3xl font-semibold sm:text-4xl">
           {{ notFound ? t("site.error.notFound") : t("site.error.generic") }}
