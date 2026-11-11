@@ -7,13 +7,16 @@ const { lines, count, subtotal, ready, setQuantity, remove, clear, refresh } =
   useCart<PublicProduct>();
 
 const notice = ref("");
+
 watch(
   ready,
   async (loaded) => {
     if (!loaded) {
       return;
     }
+
     const result = await refresh().catch(() => null);
+
     if (result?.removed.length) {
       notice.value = t("site.cart.removed", result.removed.length);
     } else if (result?.changed.length) {
@@ -35,6 +38,7 @@ function image(product: PublicProduct) {
       class="text-muted hover:text-primary mb-8 inline-flex items-center gap-1.5 text-sm"
     >
       <UIcon name="i-lucide-arrow-left" class="size-4" />
+
       {{ t("site.product.back") }}
     </ULink>
 
@@ -87,6 +91,7 @@ function image(product: PublicProduct) {
               sizes="80px"
               class="size-full object-cover"
             />
+
             <UIcon
               v-else
               name="i-lucide-image"
@@ -104,6 +109,7 @@ function image(product: PublicProduct) {
               >
                 {{ line.product.name }}
               </NuxtLink>
+
               <p class="text-muted text-sm">
                 {{ formatProductPrice(line.product.price) }}
               </p>
@@ -146,11 +152,14 @@ function image(product: PublicProduct) {
       >
         <div class="flex items-baseline justify-between gap-4">
           <span class="text-muted">{{ t("site.cart.items", count) }}</span>
+
           <span class="text-highlighted text-2xl font-semibold">
             {{ formatProductPrice(subtotal) }}
           </span>
         </div>
+
         <p class="text-muted text-sm">{{ t("site.cart.subtotalHint") }}</p>
+
         <UButton
           :label="t('site.cart.clear')"
           icon="i-lucide-x"

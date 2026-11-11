@@ -1,15 +1,15 @@
 <script setup lang="ts">
 interface Props {
-  /** The post to show. */
   post: PlutoPost;
-  /** Mark the post as a draft (an editor sees drafts). */
   draft?: boolean;
 }
 
 const props = defineProps<Props>();
 
 const date = computed(() =>
-  formatPublishedDate(props.post, { dateStyle: "long" }),
+  formatPublishedDate(props.post, {
+    dateStyle: "long",
+  }),
 );
 </script>
 
@@ -20,6 +20,7 @@ const date = computed(() =>
       class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-heading"
     >
       <Icon name="lucide:arrow-left" class="size-4" />
+
       All posts
     </NuxtLink>
 
@@ -30,6 +31,7 @@ const date = computed(() =>
           :key="category.id"
         >
           <span v-if="index" class="text-muted" aria-hidden="true"> · </span>
+
           <NuxtLink
             v-if="category.slug"
             :to="`/categories/${category.slug}`"
@@ -37,14 +39,18 @@ const date = computed(() =>
           >
             {{ category.label }}
           </NuxtLink>
+
           <span v-else class="text-heading">{{ category.label }}</span>
         </template>
       </p>
 
       <p class="text-sm text-muted">
         <time v-if="date">{{ date }}</time>
+
         <span v-if="date" aria-hidden="true"> · </span>
+
         <span>{{ readingMinutes(props.post.html) }} min read</span>
+
         <span
           v-if="props.draft"
           class="ms-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-950 dark:text-amber-300"

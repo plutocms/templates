@@ -1,10 +1,7 @@
 <script setup lang="ts">
 interface Props {
-  /** The kind of callout. */
   type?: "note" | "tip" | "warning";
-  /** The first line, in bold. */
   title?: string;
-  /** The text of the callout. */
   text?: string;
 }
 
@@ -16,7 +13,7 @@ const props = withDefaults(defineProps<Props>(), {
 
 definePlutoBlock({
   label: "Callout",
-  icon: "i-lucide-message-square-quote",
+  icon: "lucide:message-square-quote",
   description: "A note, a tip or a warning in a box.",
 });
 </script>
@@ -35,6 +32,7 @@ definePlutoBlock({
     <p v-if="props.title" class="font-semibold text-heading">
       {{ props.title }}
     </p>
+
     <p v-if="props.text" :class="props.title && 'mt-1'">{{ props.text }}</p>
   </aside>
 </template>

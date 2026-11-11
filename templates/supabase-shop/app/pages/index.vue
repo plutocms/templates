@@ -1,35 +1,57 @@
 <script setup lang="ts">
 const siteName = useRuntimeConfig().public.websiteName;
+
 const { t } = usePlutoSiteI18n();
+
 const route = useRoute();
 const router = useRouter();
 
-useSeoMeta({ title: siteName, description: () => t("site.home.tagline") });
+useSeoMeta({
+  title: siteName,
+  description: () => t("site.home.tagline"),
+});
 
 const PAGE_SIZE = 12;
 
 const q = computed(() => String(route.query.q ?? "").trim());
+
 const categorySlug = computed(() => String(route.query.category ?? ""));
+
 const page = computed({
   get: () => Math.max(1, Number(route.query.page) || 1),
+
   set: (value: number) =>
     router.replace({
-      query: { ...route.query, page: value > 1 ? String(value) : undefined },
+      query: {
+        ...route.query,
+        page: value > 1 ? String(value) : undefined,
+      },
     }),
 });
 
 const search = ref(q.value);
+
 watchDebounced(
   search,
   (value) =>
     router.replace({
-      query: { ...route.query, q: value.trim() || undefined, page: undefined },
+      query: {
+        ...route.query,
+        q: value.trim() || undefined,
+        page: undefined,
+      },
     }),
   { debounce: 300 },
 );
 
 function categoryLink(slug?: string) {
-  return { query: { ...route.query, category: slug, page: undefined } };
+  return {
+    query: {
+      ...route.query,
+      category: slug,
+      page: undefined,
+    },
+  };
 }
 
 function clearFilters() {
@@ -39,9 +61,14 @@ function clearFilters() {
 
 const { data: categoryList } = await usePlutoPublicList<PublicProductTaxonomy>(
   "product-category",
-  { limit: 100, sort: "label" },
+  {
+    limit: 100,
+    sort: "label",
+  },
 );
+
 const categories = computed(() => categoryList.value?.data ?? []);
+
 const category = computed(() =>
   categories.value.find((entry) => entry.slug === categorySlug.value),
 );
@@ -70,6 +97,7 @@ const filtered = computed(() => Boolean(q.value || category.value));
           class="bg-primary/10 text-primary ring-primary/25 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-medium ring"
         >
           <UIcon name="i-lucide-shopping-bag" class="size-4" />
+
           {{ t("site.home.chip") }}
         </span>
 

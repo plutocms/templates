@@ -2,14 +2,14 @@
 import type { NuxtError } from "#app";
 
 interface Props {
-  /** The error that Nuxt shows. */
   error: NuxtError;
 }
 
 const props = defineProps<Props>();
 
 const { t } = usePlutoSiteI18n();
-const notFound = computed(() => props.error.statusCode === 404);
+
+const notFound = computed(() => props.error.status === 404);
 
 useSeoMeta({
   title: () =>
@@ -25,14 +25,17 @@ useSeoMeta({
         class="flex flex-col items-center gap-5 py-24 text-center sm:py-32"
       >
         <p class="font-display text-primary text-7xl font-semibold">
-          {{ props.error.statusCode }}
+          {{ props.error.status }}
         </p>
+
         <h1 class="text-highlighted text-3xl font-semibold sm:text-4xl">
           {{ notFound ? t("site.error.notFound") : t("site.error.generic") }}
         </h1>
+
         <p v-if="notFound" class="text-muted max-w-md text-pretty">
           {{ t("site.error.notFoundHint") }}
         </p>
+
         <UButton
           :label="t('site.error.home')"
           icon="i-lucide-house"

@@ -1,8 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  /** Narrows the list, for example `{ tags: 'hiking' }`. */
   filter?: Record<string, string>;
-  /** The text when the list has no posts. */
   emptyText?: string;
 }
 
@@ -21,10 +19,12 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
 
       <label class="relative mt-8 block">
         <span class="sr-only">Search posts</span>
+
         <Icon
           name="lucide:search"
           class="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted"
         />
+
         <input
           v-model="search"
           type="search"
@@ -40,6 +40,7 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
 
     <p v-else-if="!posts.length && search.trim()">
       No posts match “{{ search.trim() }}”.
+
       <button
         type="button"
         class="underline underline-offset-4"
@@ -49,7 +50,9 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
       </button>
     </p>
 
-    <p v-else-if="!posts.length && props.emptyText">{{ props.emptyText }}</p>
+    <p v-else-if="!posts.length && props.emptyText">
+      {{ props.emptyText }}
+    </p>
 
     <p v-else-if="!posts.length">
       No posts yet.
@@ -79,9 +82,10 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
           <Icon name="lucide:arrow-left" class="size-4" />
           Newer posts
         </NuxtLink>
+
         <span v-else />
 
-        <span class="text-muted">Page {{ page }} of {{ pages }}</span>
+        <span class="text-muted"> Page {{ page }} of {{ pages }} </span>
 
         <NuxtLink
           v-if="page < pages"
@@ -89,8 +93,10 @@ const { posts, search, page, pages, pageLink, error } = await usePosts({
           class="inline-flex items-center gap-1.5 hover:text-heading"
         >
           Older posts
+
           <Icon name="lucide:arrow-right" class="size-4" />
         </NuxtLink>
+
         <span v-else />
       </nav>
     </template>

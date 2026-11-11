@@ -1,8 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  /** The tags or categories. A term with no slug shows as plain text. */
   terms?: PlutoPublicReference[];
-  /** The folder of the term pages: `tags` links to `/tags/<slug>`. */
   base: "tags" | "categories";
 }
 
@@ -19,6 +17,7 @@ const props = defineProps<Props>();
       >
         {{ term.label }}
       </NuxtLink>
+
       <span
         v-else
         class="inline-block rounded-full bg-surface px-3 py-1 text-sm text-muted"

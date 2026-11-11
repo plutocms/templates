@@ -1,8 +1,16 @@
 <script setup lang="ts">
-const { tags } = await useTags({ limit: 100, search: false, page: false });
+const { tags } = await useTags({
+  limit: 100,
+  search: false,
+  page: false,
+});
 
 const terms = computed<PlutoPublicReference[]>(() =>
-  tags.value.map((tag) => ({ id: tag.id, label: tag.title, slug: tag.slug })),
+  tags.value.map((tag) => ({
+    id: tag.id,
+    label: tag.title,
+    slug: tag.slug,
+  })),
 );
 
 useHead({ title: "Tags" });
@@ -16,8 +24,10 @@ useHead({ title: "Tags" });
         class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-heading"
       >
         <Icon name="lucide:arrow-left" class="size-4" />
+
         All posts
       </NuxtLink>
+
       <h1
         class="mt-8 text-3xl font-semibold tracking-tight text-heading sm:text-4xl"
       >
@@ -26,6 +36,7 @@ useHead({ title: "Tags" });
     </section>
 
     <TermChips v-if="terms.length" :terms="terms" base="tags" />
+
     <p v-else>No tags yet.</p>
   </div>
 </template>

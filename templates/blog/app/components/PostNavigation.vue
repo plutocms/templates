@@ -1,8 +1,6 @@
 <script setup lang="ts">
 interface Props {
-  /** The next post by date, if any. */
   newer: PlutoPostSummary | null;
-  /** The previous post by date, if any. */
   older: PlutoPostSummary | null;
 }
 
@@ -21,12 +19,14 @@ const props = defineProps<Props>();
       class="group"
     >
       <span class="text-sm text-muted">Older post</span>
+
       <span
         class="mt-1 block font-semibold text-heading group-hover:underline group-hover:underline-offset-4"
       >
         {{ props.older.title }}
       </span>
     </NuxtLink>
+
     <span v-else />
 
     <NuxtLink
@@ -35,6 +35,7 @@ const props = defineProps<Props>();
       class="group sm:text-end"
     >
       <span class="text-sm text-muted">Newer post</span>
+
       <span
         class="mt-1 block font-semibold text-heading group-hover:underline group-hover:underline-offset-4"
       >

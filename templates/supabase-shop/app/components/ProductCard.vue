@@ -1,6 +1,5 @@
 <script setup lang="ts">
 interface Props {
-  /** The product, as the public list returns it. */
   product: PublicProduct;
 }
 
@@ -24,6 +23,7 @@ const image = computed(() => productImages(props.product)[0]);
         sizes="xs:50vw lg:300px"
         class="size-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
+
       <UIcon
         v-else
         name="i-lucide-image"
@@ -37,6 +37,7 @@ const image = computed(() => productImages(props.product)[0]);
         variant="solid"
         class="absolute top-3 left-3"
       />
+
       <UBadge
         v-else-if="isSoldOut(props.product)"
         :label="t('site.product.soldOut')"
