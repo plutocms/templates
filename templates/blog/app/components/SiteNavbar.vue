@@ -11,6 +11,7 @@ const { name: siteName } = usePlutoSite();
       class="inline-flex min-w-0 items-center gap-2.5 font-semibold text-heading"
     >
       <PlutoLogo mark class="size-6 shrink-0" aria-hidden="true" />
+
       <span class="truncate">{{ siteName }}</span>
     </NuxtLink>
 

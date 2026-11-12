@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const siteName = useRuntimeConfig().public.websiteName;
+
 const { t } = usePlutoSiteI18n();
 
 useHead({
@@ -7,11 +8,8 @@ useHead({
     title && title !== siteName ? `${title} - ${siteName}` : siteName,
 });
 
-// PlutoRoot moves the page down under the admin bar while it shows. The
-// layout is then one screen less the bar, so a short page does not scroll.
 const { visible: offset } = usePlutoAdminBar();
 
-// The count shows once the browser has loaded the saved cart (`ready`), so it never flashes.
 const { count, ready } = useCart();
 </script>
 
@@ -30,6 +28,7 @@ const { count, ready } = useCart();
       <UContainer class="flex h-16 items-center justify-between gap-4">
         <NuxtLink to="/" class="flex min-w-0 items-center gap-2.5">
           <PlutoLogo mark class="size-7 shrink-0" />
+
           <span
             class="font-display text-highlighted truncate text-xl font-semibold"
           >
@@ -39,7 +38,9 @@ const { count, ready } = useCart();
 
         <div class="flex items-center gap-1">
           <LanguageSwitch />
+
           <UColorModeButton color="neutral" variant="ghost" />
+
           <UButton
             :label="ready && count > 0 ? String(count) : undefined"
             :aria-label="t('site.cart.open', ready ? count : 0)"
@@ -68,6 +69,7 @@ const { count, ready } = useCart();
           class="hover:text-highlighted flex items-center gap-2"
         >
           <PlutoLogo mark class="size-4" />
+
           {{ t("site.footer.builtWith") }}
         </ULink>
       </UContainer>

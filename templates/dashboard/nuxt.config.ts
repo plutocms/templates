@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // This app has no public pages. The home page opens the admin.
   routeRules: {
     "/": { redirect: "/admin" },
   },

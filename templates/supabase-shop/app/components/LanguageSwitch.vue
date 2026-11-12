@@ -2,7 +2,10 @@
 const { t, locale, locales, setLocale } = usePlutoSiteI18n();
 
 function languageName(code: string): string {
-  const name = new Intl.DisplayNames([code], { type: "language" }).of(code);
+  const name = new Intl.DisplayNames([code], {
+    type: "language",
+  }).of(code);
+
   return name ? name.charAt(0).toLocaleUpperCase(code) + name.slice(1) : code;
 }
 

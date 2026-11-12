@@ -1,8 +1,15 @@
 <script setup lang="ts">
-const props = defineProps<{ post: PlutoPost; draft?: boolean }>();
+interface Props {
+  post: PlutoPost;
+  draft?: boolean;
+}
+
+const props = defineProps<Props>();
 
 const date = computed(() =>
-  formatPublishedDate(props.post, { dateStyle: "long" }),
+  formatPublishedDate(props.post, {
+    dateStyle: "long",
+  }),
 );
 </script>
 
@@ -13,16 +20,18 @@ const date = computed(() =>
       class="inline-flex items-center gap-1.5 text-sm text-muted hover:text-heading"
     >
       <Icon name="lucide:arrow-left" class="size-4" />
+
       All posts
     </NuxtLink>
 
     <header class="mt-8">
-      <p v-if="post.categories?.length" class="mb-2 text-sm font-medium">
+      <p v-if="props.post.categories?.length" class="mb-2 text-sm font-medium">
         <template
-          v-for="(category, index) in post.categories"
+          v-for="(category, index) in props.post.categories"
           :key="category.id"
         >
           <span v-if="index" class="text-muted" aria-hidden="true"> · </span>
+
           <NuxtLink
             v-if="category.slug"
             :to="`/categories/${category.slug}`"
@@ -30,16 +39,20 @@ const date = computed(() =>
           >
             {{ category.label }}
           </NuxtLink>
+
           <span v-else class="text-heading">{{ category.label }}</span>
         </template>
       </p>
 
       <p class="text-sm text-muted">
         <time v-if="date">{{ date }}</time>
+
         <span v-if="date" aria-hidden="true"> · </span>
-        <span>{{ readingMinutes(post.html) }} min read</span>
+
+        <span>{{ readingMinutes(props.post.html) }} min read</span>
+
         <span
-          v-if="draft"
+          v-if="props.draft"
           class="ms-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-950 dark:text-amber-300"
         >
           Draft
@@ -49,29 +62,34 @@ const date = computed(() =>
       <h1
         class="mt-2 text-3xl font-semibold tracking-tight text-balance text-heading sm:text-4xl"
       >
-        {{ post.title }}
+        {{ props.post.title }}
       </h1>
 
-      <p v-if="post.excerpt" class="mt-4 text-lg text-pretty text-muted">
-        {{ post.excerpt }}
+      <p v-if="props.post.excerpt" class="mt-4 text-lg text-pretty text-muted">
+        {{ props.post.excerpt }}
       </p>
 
-      <AuthorByline :authors="post.authors" class="mt-6" />
+      <AuthorByline :authors="props.post.authors" class="mt-6" />
     </header>
 
     <PlutoImage
-      v-if="post.cover"
-      :media="post.cover"
+      v-if="props.post.cover"
+      :media="props.post.cover"
       sizes="xs:100vw md:672px"
       loading="eager"
       fetchpriority="high"
       class="mt-10 h-auto w-full rounded-xl"
     />
 
-    <PlutoHtml :html="post.html" tag="div" class="mt-10" data-pluto-post-body />
+    <PlutoHtml
+      :html="props.post.html"
+      tag="div"
+      class="mt-10"
+      data-pluto-post-body
+    />
 
-    <TermChips :terms="post.tags" base="tags" class="mt-12" />
+    <TermChips :terms="props.post.tags" base="tags" class="mt-12" />
 
-    <AuthorBox :authors="post.authors" class="mt-12" />
+    <AuthorBox :authors="props.post.authors" class="mt-12" />
   </article>
 </template>

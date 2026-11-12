@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// The categories of the blog, as links to their pages. With no category, it shows nothing.
 const { categories } = await useCategories({
   limit: 100,
   search: false,

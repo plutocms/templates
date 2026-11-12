@@ -6,17 +6,17 @@ useSeoMeta({ title: () => t("site.cart.title"), robots: "noindex" });
 const { lines, count, subtotal, ready, setQuantity, remove, clear, refresh } =
   useCart<PublicProduct>();
 
-// The cart reads its products again after each page load. Here the page also shows what
-// changed: a product that is gone or sold out, a new price or less stock. On the first page of a
-// visit the call is the one that the cart starts when it loads.
 const notice = ref("");
+
 watch(
   ready,
   async (loaded) => {
     if (!loaded) {
       return;
     }
+
     const result = await refresh().catch(() => null);
+
     if (result?.removed.length) {
       notice.value = t("site.cart.removed", result.removed.length);
     } else if (result?.changed.length) {
@@ -38,6 +38,7 @@ function image(product: PublicProduct) {
       class="text-muted hover:text-primary mb-8 inline-flex items-center gap-1.5 text-sm"
     >
       <UIcon name="i-lucide-arrow-left" class="size-4" />
+
       {{ t("site.product.back") }}
     </ULink>
 
@@ -56,7 +57,6 @@ function image(product: PublicProduct) {
       class="mb-6"
     />
 
-    <!-- The server has no cart: until the browser loads it, the page shows a placeholder. -->
     <div v-if="!ready" class="flex flex-col gap-4">
       <USkeleton v-for="index in 2" :key="index" class="h-24 rounded-xl" />
     </div>
@@ -91,6 +91,7 @@ function image(product: PublicProduct) {
               sizes="80px"
               class="size-full object-cover"
             />
+
             <UIcon
               v-else
               name="i-lucide-image"
@@ -108,6 +109,7 @@ function image(product: PublicProduct) {
               >
                 {{ line.product.name }}
               </NuxtLink>
+
               <p class="text-muted text-sm">
                 {{ formatProductPrice(line.product.price) }}
               </p>
@@ -150,11 +152,14 @@ function image(product: PublicProduct) {
       >
         <div class="flex items-baseline justify-between gap-4">
           <span class="text-muted">{{ t("site.cart.items", count) }}</span>
+
           <span class="text-highlighted text-2xl font-semibold">
             {{ formatProductPrice(subtotal) }}
           </span>
         </div>
+
         <p class="text-muted text-sm">{{ t("site.cart.subtotalHint") }}</p>
+
         <UButton
           :label="t('site.cart.clear')"
           icon="i-lucide-x"

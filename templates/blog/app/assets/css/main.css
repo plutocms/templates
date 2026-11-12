@@ -1,13 +1,10 @@
 @import "tailwindcss";
 
-/* `dark:` follows the color mode of the site (the `dark` class), not the system. */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/*
- * The colors of the site. Each one is also a utility: `bg-page`, `text-body`,
- * `text-heading`, `text-muted`, `border-line`, `bg-surface`.
- */
 @theme {
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+
   --color-page: var(--color-white);
   --color-body: var(--color-zinc-700);
   --color-heading: var(--color-zinc-950);
@@ -35,7 +32,6 @@
   }
 }
 
-/* The post body. `PlutoHtml` renders the HTML of a post with the `pluto-prose` class. */
 @layer components {
   .pluto-prose {
     font-size: 1.0625rem;

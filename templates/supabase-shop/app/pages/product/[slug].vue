@@ -1,40 +1,50 @@
 <script setup lang="ts">
 const route = useRoute();
-const slug = computed(() => String(route.params.slug));
+
 const { t } = usePlutoSiteI18n();
 
 const { data, error } = await usePlutoPublicItem<PublicProduct>(
   "product",
-  slug,
+  route.params.slug,
 );
+
 const product = computed(() => data.value?.data);
 
 if (error.value) {
-  throw createError({ statusCode: 404, statusMessage: "Product not found" });
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Product not found",
+  });
 }
 
 const images = computed(() =>
   product.value ? productImages(product.value) : [],
 );
-// The gallery: the images, then the 3D models. A model shows in the viewer of @plutocms/3d.
+
 const gallery = computed(() =>
   product.value ? [...images.value, ...productModels(product.value)] : [],
 );
+
 const selected = ref(0);
+
 const current = computed(
   () => gallery.value[selected.value] ?? gallery.value[0],
 );
+
 const isModel = (file: PlutoPublicMedia | undefined) =>
   file?.mimeType === "model/gltf-binary";
 
 const stock = computed(() => {
   const item = product.value;
+
   if (!item) {
     return "";
   }
+
   if (item.is_custom) {
     return t("site.product.madeToOrder");
   }
+
   return isSoldOut(item)
     ? t("site.product.soldOut")
     : t("site.product.inStock", { count: item.stock_quantity });
@@ -51,11 +61,11 @@ useSeoMeta({
 usePlutoEditLink("product", () => product.value?.id);
 
 const { add, quantityOf, limitOf } = useCart<PublicProduct>();
-// The units of this product in the cart, and whether one more fits (the stock, and the limit of
-// the cart). A sold out product has a limit of 0.
+
 const inCart = computed(() =>
   product.value ? quantityOf(product.value.id) : 0,
 );
+
 const canAdd = computed(
   () => !!product.value && inCart.value < limitOf(product.value),
 );
@@ -84,6 +94,7 @@ const canAdd = computed(
             auto-rotate
             class="size-full"
           />
+
           <PlutoImage
             v-else-if="current"
             :media="current"
@@ -93,6 +104,7 @@ const canAdd = computed(
             fetchpriority="high"
             class="size-full object-cover"
           />
+
           <UIcon
             v-else
             name="i-lucide-image"
@@ -126,11 +138,13 @@ const canAdd = computed(
               sizes="xs:20vw md:120px"
               class="size-full object-cover"
             />
+
             <UIcon
               v-else
               name="i-lucide-box"
               class="text-dimmed absolute inset-0 m-auto size-6"
             />
+
             <UBadge
               v-if="isModel(file)"
               label="3D"
@@ -156,6 +170,7 @@ const canAdd = computed(
               class="hover:bg-primary/20 transition-colors"
             />
           </NuxtLink>
+
           <UBadge
             v-if="product.availability"
             :label="product.availability.label"
@@ -174,6 +189,7 @@ const canAdd = computed(
           <p class="text-highlighted text-3xl font-semibold">
             {{ formatProductPrice(product.price) }}
           </p>
+
           <p
             :class="isSoldOut(product) ? 'text-muted' : 'text-success'"
             class="text-sm font-medium"
@@ -190,12 +206,14 @@ const canAdd = computed(
             size="lg"
             @click="add(product)"
           />
+
           <ULink
             v-if="inCart > 0"
             to="/cart"
             class="text-muted hover:text-primary inline-flex items-center gap-1 text-sm"
           >
             {{ t("site.cart.inCart", inCart) }}
+
             <UIcon name="i-lucide-arrow-right" class="size-4" />
           </ULink>
         </div>
