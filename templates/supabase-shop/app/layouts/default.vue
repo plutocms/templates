@@ -8,19 +8,12 @@ useHead({
     title && title !== siteName ? `${title} - ${siteName}` : siteName,
 });
 
-const { visible: offset } = usePlutoAdminBar();
-
 const { count, ready } = useCart();
 </script>
 
 <template>
   <div
-    :class="
-      offset
-        ? 'min-h-[calc(100dvh-var(--pluto-admin-bar-height))]'
-        : 'min-h-dvh'
-    "
-    class="bg-default text-default flex flex-col"
+    class="bg-default text-default flex min-h-(--pluto-page-height) flex-col"
   >
     <header
       class="pluto-site-header border-default bg-default/75 sticky top-0 z-40 border-b backdrop-blur"
