@@ -14,7 +14,7 @@
     "@plutocms/core": "^0.70.1",
     "@plutocms/supabase-shop": "^0.26.1",
     "nuxt": "^4.6.3",
-    "vue": "^3.5.41",
+    "vue": "^3.5.45",
     "vue-router": "^5.2.0"
   },
   "devDependencies": {
