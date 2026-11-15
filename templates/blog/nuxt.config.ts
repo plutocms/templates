@@ -18,6 +18,10 @@ export default defineNuxtConfig({
     preference: "light",
   },
 
+  plutoPages: {
+    enabled: true,
+  },
+
   runtimeConfig: {
     public: {
       websiteName: "My Blog",
