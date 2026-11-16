@@ -13,6 +13,10 @@ export default defineNuxtConfig({
     },
   },
 
+  plutoPages: {
+    enabled: true,
+  },
+
   runtimeConfig: {
     public: {
       websiteName: "My Shop",
