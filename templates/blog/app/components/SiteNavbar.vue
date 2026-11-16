@@ -1,5 +1,7 @@
 <script setup lang="ts">
 const { name: siteName } = usePlutoSite();
+
+const { items } = await usePlutoMenu("main");
 </script>
 
 <template>
@@ -16,7 +18,55 @@ const { name: siteName } = usePlutoSite();
     </NuxtLink>
 
     <nav class="flex items-center gap-4">
-      <NuxtLink to="/about" class="text-sm text-muted hover:text-heading">
+      <template v-if="items.length">
+        <template v-for="item in items" :key="item.label">
+          <details v-if="item.children.length" class="relative">
+            <summary
+              class="cursor-pointer list-none text-sm text-muted hover:text-heading"
+            >
+              {{ item.label }}
+            </summary>
+
+            <div
+              class="absolute right-0 z-10 mt-2 flex min-w-40 flex-col gap-1 rounded-md border border-default bg-surface p-2 shadow-sm"
+            >
+              <NuxtLink
+                v-if="item.to"
+                :to="item.to"
+                :target="item.target"
+                class="rounded px-2 py-1 text-sm text-muted hover:text-heading"
+              >
+                {{ item.label }}
+              </NuxtLink>
+
+              <NuxtLink
+                v-for="child in item.children"
+                :key="child.label"
+                :to="child.to"
+                :target="child.target"
+                class="rounded px-2 py-1 text-sm text-muted hover:text-heading"
+              >
+                {{ child.label }}
+              </NuxtLink>
+            </div>
+          </details>
+
+          <NuxtLink
+            v-else
+            :to="item.to"
+            :target="item.target"
+            class="text-sm text-muted hover:text-heading"
+          >
+            {{ item.label }}
+          </NuxtLink>
+        </template>
+      </template>
+
+      <NuxtLink
+        v-else
+        to="/about"
+        class="text-sm text-muted hover:text-heading"
+      >
         About
       </NuxtLink>
 

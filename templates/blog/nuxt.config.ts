@@ -22,6 +22,14 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
+  plutoMenus: {
+    enabled: true,
+  },
+
+  plutoAreas: {
+    enabled: true,
+  },
+
   runtimeConfig: {
     public: {
       websiteName: "My Blog",
