@@ -6,9 +6,18 @@ const hasFeed = Boolean(useAppConfig().plutoSeo);
 const feed = `${useRuntimeConfig().app.baseURL}feed.xml`;
 
 const year = new Date().getFullYear();
+
+const { area } = await usePlutoArea("footer");
 </script>
 
 <template>
+  <PlutoBlocks
+    v-if="area"
+    :value="area.blocks"
+    tag="div"
+    class="mx-auto w-full max-w-2xl px-6 pt-10"
+  />
+
   <footer
     class="mx-auto flex w-full max-w-2xl flex-wrap items-center justify-between gap-2 px-6 py-10 text-sm text-muted"
   >
