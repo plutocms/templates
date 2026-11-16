@@ -15,8 +15,14 @@ const { name: siteName } = usePlutoSite();
       <span class="truncate">{{ siteName }}</span>
     </NuxtLink>
 
-    <ColorModeButton
-      class="inline-flex size-8 cursor-pointer items-center justify-center rounded-md text-muted hover:bg-surface hover:text-heading"
-    />
+    <nav class="flex items-center gap-4">
+      <NuxtLink to="/about" class="text-sm text-muted hover:text-heading">
+        About
+      </NuxtLink>
+
+      <ColorModeButton
+        class="inline-flex size-8 cursor-pointer items-center justify-center rounded-md text-muted hover:bg-surface hover:text-heading"
+      />
+    </nav>
   </header>
 </template>
